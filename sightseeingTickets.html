@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/themify-icons/css/themify-icons.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <!--  -->
+    <link rel="stylesheet" href="assets/lib/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/lib/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./assets/lib/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <nav></nav>
+    <div class="main">
+
+        <div class="header">
+            <div class="content">
+                <div class="rwd-header-container">
+                    <div class="experience-title-and-location-button">
+                        <h2>Vé tham quan</h2>
+                        <p>Khám quá những công viên cực đỉnh, bảo tàng cùng các điểm đến nổi tiếng khác</p>
+                    </div>
+                    <div class="header-search">
+                        <label for="" class="input-box">
+                            <i class="ti-search"></i>
+                            <input type="text" name="" id="searchInput" placeholder="Bạn muốn đi đâu ?"
+                                onclick="hideBorder()">
+                            <button>Khám Phá</button>
+                        </label>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="SubVerticalMenu">
+            <div class="container-sub">
+
+                <div class="box-sub">
+                    <div class="images">
+                        <img src="assets/images/icon_category_theme_park_36_web_3x.png" alt="">
+                    </div>
+                    <p>Công viên giải trí </p>
+                </div>
+
+                <div class="box-sub">
+                    <div class="images">
+                        <img src="assets/images/cong-vien-nuoc.png" alt="">
+                    </div>
+                    <p>Công viên nước </p>
+                </div>
+
+                <div class="box-sub">
+                    <div class="images">
+                        <img src="assets/images/museum.png" alt="">
+                    </div>
+                    <p>Bảo tàng </p>
+                </div>
+
+                <div class="box-sub">
+                    <div class="images">
+                        <img src="assets/images/icon_category_park_36_web_3x.png" alt="">
+                    </div>
+                    <p>Công viên & Vườn bách thảo </p>
+                </div>
+
+                <div class="box-sub">
+                    <div class="images">
+                        <img src="assets/images/so-thu.png" alt="">
+                    </div>
+                    <p>Sở thú & Thủy Cung </p>
+                </div>
+
+                <div class="box-sub">
+                    <div class="images">
+                        <img src="assets/images/di-tich-lich-su.jpg" alt="">
+                    </div>
+                    <p>Di tích lịch sử</p>
+                </div>
+
+                <div class="box-sub">
+                    <div class="images">
+                        <img src="assets/images/event.png" alt="">
+                    </div>
+                    <p>Comming soon</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="HotCountry_ActivityLIST">
+            <div class="container">
+                <div class="list vietnam">
+                    <div class="klk-card-swiper">
+                        <div class="klk-card-swiper-items-wrapper">
+                            <div class="navigation-left"><button onclick="clickPrevious('vietnam')" class="clickNext"><i
+                                        class='bx bxs-chevron-left'></i></button></div>
+                            <div class="box active box-container vietnam " data-index="0">
+                                <div class="box-item prevoious left">
+                                    <div class="img-item previous">
+                                        <img src="./assets/images/ruong-bac-thang.jpg" alt="">
+                                    </div>
+                                    <span class="container left-button">
+                                        <div class="more">
+                                            <h2>Việt Nam</h2>
+                                        </div>
+                                        <div class="title right">
+                                            <a href="">Khám phá</a><i style="opacity: .8; font-size: 12px" class='bx bxs-chevron-right'></i>
+                                        </div>
+                                    </span>
+                                </div>
+
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Chính sách bảo đảm về giá</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="box  box-container vietnam" data-index="1">
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Chính sách bảo đảm về giá</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="box  box-container vietnam " data-index="2">
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Chính sách bảo đảm về giá</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item prevoious right">
+                                    <div class="img-item previous">
+                                        <img src="./assets/images/ruong-bac-thang2.jpg" alt="">
+                                    </div>
+                                    <span class="container right-button">
+                                        <div class="more"><button><i class='bx bxs-chevron-right'></i></button>
+                                        </div>
+                                        <div class="title right">
+                                            <a href="">
+                                                <h2>khám phá thêm </h2>
+                                            </a>
+
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+
+
+                            <div class="navigation-right"><button onclick="clickNext('vietnam')" class="clickNext"><i
+                                        class='bx bxs-chevron-right'></i></button></div>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="list thailand">
+                    <div class="klk-card-swiper">
+                        <div class="klk-card-swiper-items-wrapper">
+                            <div class="navigation-left"><button onclick="clickPrevious('thailand')" class="clickNext"><i
+                                        class='bx bxs-chevron-left'></i></button></div>
+                            <div class="box active box-container thailand" data-index="0">
+                                <div class="box-item prevoious left">
+                                    <div class="img-item previous thailand">
+                                        <img src="./assets/images/thailand.jpg" alt="">
+                                    </div>
+                                    <span class="container left-button">
+                                        <div class="more">
+                                            <h2>Thái lan</h2>
+                                        </div>
+                                        <div class="title right">
+                                            <a href="">Khám phá</a><i style="opacity: .8; font-size: 12px" class='bx bxs-chevron-right'></i>
+                                        </div>
+                                    </span>
+                                </div>
+
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Chính sách bảo đảm về giá</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="box  box-container thailand" data-index="1">
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Chính sách bảo đảm về giá</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="box  box-container thailand" data-index="2">
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Chính sách bảo đảm về giá</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item">
+                                    <div class="img-item">
+                                        <img src="./assets/images/VinWonder Nha Trang- khu vui choi.jpg" alt="">
+                                    </div>
+                                    <div class="box-content">
+                                        <div class="title-item">
+                                            <h3>Vé VinWonders Nha Trang</h3>
+                                        </div>
+                                        <div class="recommend-item">
+                                            <i class='bx bxs-star bx-flip-horizontal'></i> <span
+                                                class="rate-recomend">4.8</span> <span>(20K+)</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <h4>đ 500.000</h4>
+                                        </div>
+                                        <div class="policy">
+                                            <div>
+                                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-item prevoious right">
+                                    <div class="img-item previous">
+                                        <img src="./assets/images/thailand2.jpg" alt="">
+                                    </div>
+                                    <span class="container right-button">
+                                        <div class="more"><button><i class='bx bxs-chevron-right'></i></button>
+                                        </div>
+                                        <div class="title right">
+                                            <a href="">
+                                                <h2>khám phá thêm </h2>
+                                            </a>
+
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+
+
+                            <div class="navigation-right"><button onclick="clickNext('thailand')" class="clickNext"><i
+                                        class='bx bxs-chevron-right'></i></button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
