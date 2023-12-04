@@ -8,10 +8,10 @@ function addItem(selectedCategory) {
 
     sessionStorage.setItem('ticket', JSON.stringify(ticket));
 
-    render();
+    render(false);
 }
 
-function render() {
+function render(isRemove) {
     const categoryItem = JSON.parse(sessionStorage.getItem('ticket')); // xu li chosen
     const sub_select = JSON.parse(sessionStorage.getItem('ticket')); // xu li chi muc 
     if (categoryItem.length < 1) {
@@ -19,7 +19,7 @@ function render() {
         return nullChosen.style.display = 'none';
     }
     renderIndex(sub_select);
-    renderSpan(categoryItem);
+    renderSpan(categoryItem, isRemove);
 
 }
 
@@ -32,22 +32,32 @@ function renderIndex(sub_select) {
     }
 }
 
-
-function renderSpan(categoryItem) {
+function renderSpan(categoryItem, isRemove) {
     let itemList = document.querySelector('.item-list');
 
-
-
+    // neu co remove thi xoa het va duyet lai tu dau 
+    if (isRemove) {
+        itemList.innerHTML = '';
+        
+    }
+    // duyet lai phan tu chua trong categoryItem
     categoryItem.forEach((item, index) => {
         //xử lí cho phần chọn categoryItem
         let span = document.createElement('span');
         span.innerHTML = `<div class="selected-tag">
                             <div class="name">${item.name}</div> 
-                            <i class='bx bx-x'></i>
+                            <i class='bx bx-x' onclick="deleteItem('${index}')"></i>
                         </div>`;
         itemList.appendChild(span);
     });
 
+}
 
+function deleteItem(index) {
+    const categoryItem = JSON.parse(sessionStorage.getItem('ticket')); 
+    const filterData = categoryItem.filter((_el, _index) => _index != index)
+    sessionStorage.removeItem('ticket', JSON.stringify(filterData));
+    sessionStorage.setItem('ticket', JSON.stringify(filterData));
+    render(true);
 }
 
