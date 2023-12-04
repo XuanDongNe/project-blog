@@ -38,7 +38,6 @@ function renderSpan(categoryItem, isRemove) {
     // neu co remove thi xoa het va duyet lai tu dau 
     if (isRemove) {
         itemList.innerHTML = '';
-        
     }
     // duyet lai phan tu chua trong categoryItem
     categoryItem.forEach((item, index) => {
