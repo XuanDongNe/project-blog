@@ -1,0 +1,179 @@
+:root {
+    --primary-key: #ff5b00;
+ }
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #fafafa;
+}
+
+nav {
+    background: aliceblue;
+    height: 50px;
+}
+
+/* background-img */
+.img-background {
+    width: 100%;
+    display: block;
+}
+
+.img-background .container.background {
+    position: relative;
+    width: 100%;
+}
+
+.img-background .container.background .img {
+    position: relative;
+    width: 100%;
+    height: 150px;
+}
+
+.img-background .container.background .img img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: grayscale(30%) brightness(70%);
+}
+
+.img-background .container.background .img .title {
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+}
+
+.img-background .container.background .img .title h1 {
+    margin: 0;
+    font-size: 35px;
+}
+
+.img-background .container.background .img .title p {
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.subvertical-select {
+    margin: 4px auto 20px;
+    width: 1160px;
+    display: flex;
+
+}
+
+/* subvertical */
+.subvertical-select .inner {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.subvertical-select .inner h3,
+.subvertical-select .inner h3 span ,.subvertical-select .inner  .sub-select  {
+    opacity: .9;
+    font-weight: 400;
+    display: inline-block;
+}
+
+.subvertical-select .inner h3 span , .subvertical-select .inner h3  {
+    vertical-align: middle;
+}
+
+.subvertical-select .inner  .sub-select {
+    opacity: .5;
+    
+}
+
+.subvertical-select .inner  .sub-select h3 {
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+/* search-main-content */
+.main-content {
+    margin: 0 auto;
+    width: 1160px;
+    background-color: #fafafa;
+}
+
+.category-tree-and-activity-list {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    padding-bottom: 70px;
+}
+
+.destinations-category-tree .container {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 70px;
+    left: 0;
+    overflow-y: scroll;
+    width: 283px;
+    min-height: 200px;
+    padding: 20px 16px 9px;
+    background-color: #fff;
+    border-radius: 12px;
+    flex-shrink: 0;
+    margin-right: 21px;
+}
+
+.chosen-list {
+    margin-bottom: 16px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.chosen-list .title {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.chosen-list .item-list {
+    padding: 16px 0;
+    display: flex;
+    flex-wrap: wrap;  
+}
+
+.selected-tag {
+    padding: 4px 6px;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    font-size: 14px;
+    color: #212121;
+    display: -webkit-inline-box;
+    display: inline-flex;
+    margin: 0 12px 12px 0;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    line-height: 1.3;
+}
+
+.selected-tag .name {
+    margin-right: 10px;
+}
+.selected-tag i {
+    vertical-align: middle;
+}
+
+.chosen-list .item-list span {
+    /* margin-right: 8px; Thay đổi giá trị của margin tùy thuộc vào khoảng cách mong muốn */
+}
+
+.clear-selection {
+    color: var(--primary-key);
+    cursor: pointer;
+}

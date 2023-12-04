@@ -1,3 +1,7 @@
+// 
+// CLICK NEXT SILDES
+// 
+
 let currentIndexVietNam = 0;
 let currentIndexThaiLand = 0;
 
@@ -54,3 +58,33 @@ function updateBoxes(country) {
     }
   });
 }
+
+
+
+const boxSubs = document.querySelectorAll('.box-sub');
+boxSubs.forEach(boxSub => {
+    boxSub.addEventListener('click', () => clickBySub(boxSub));
+    // console.log('ok');
+});
+
+function clickBySub(boxSub) {
+  var selectedCategory = boxSub.getAttribute("data-sub");
+  // ngoai tru box comming soon thi duoc nhay tag moi
+  if(selectedCategory !== 'none'){
+    window.open('selectionTickets.html' ,'_blank');
+   
+    // luu du lieu vao localStorage
+    localStorage.setItem("selectedCategory", JSON.stringify(selectedCategory));
+    addItem(selectedCategory);
+  }
+}
+
+
+
+
+
+
+
+
+
+

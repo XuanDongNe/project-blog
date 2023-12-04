@@ -149,6 +149,12 @@ nav {
    transition: .4s;
 }
 
+.box-sub a {
+   color: #000;
+   text-decoration: none;
+   text-align: center;
+}
+
 .box-sub .images {
    position: relative;
    border-radius: 12px;
