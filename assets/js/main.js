@@ -75,7 +75,7 @@ function clickBySub(boxSub) {
    
     // luu du lieu vao localStorage
     localStorage.setItem("selectedCategory", JSON.stringify(selectedCategory));
-    addItem(selectedCategory);
+    // addItem(selectedCategory);
   }
 }
 

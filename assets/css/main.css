@@ -185,6 +185,12 @@ nav {
    cursor: pointer;
 }
 
+.box-sub.none:hover{
+   transform: translateY(-5px);
+   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.605);
+   cursor: not-allowed;
+}
+
 /* .box-sub:hover .title.right {
 position:absolute;
 top:50%;
