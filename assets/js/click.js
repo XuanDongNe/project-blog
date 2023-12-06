@@ -3,7 +3,9 @@ var ticket = [];
 addItem();
 
 
-// ve tiket
+// ========================================================================= //
+//  // VÉ Ticket
+// ========================================================================= //
 function addItem(selectedCategory) {
     const newItem = {
         name: JSON.parse(localStorage.getItem("selectedCategory"))
@@ -66,12 +68,16 @@ function deleteItem(index) {
 }
 
 
-//call api
-let provinces = []
+// ========================================================================= //
+//  // call api province
+// ========================================================================= //
+
+let provinces = [];
+
 async function getApi() {
     try {
-        let data = await axios.get("https://vapi.vnappmob.com/api/province");
-        provinces = data.data;
+        let response = await axios.get("https://provinces.open-api.vn/api/");
+        provinces = Object.keys(response.data).map(key => response.data[key]);
         console.log(provinces);
         renderData(provinces);
     } catch (e) {
@@ -80,27 +86,35 @@ async function getApi() {
 }
 
 function renderData(provinces) {
-    let treeSetItem = document.querySelector('.klk-tree-node');
+    let treeSetItems = document. querySelectorAll('.klk-tree-node.main');
 
+    treeSetItems.forEach((treeSetItem) => {
     provinces.forEach((value, index) => {
         let div = document.createElement('div');
         div.className = 'klk-tree-sub klk-tree-node';
         div.style.paddingLeft = '32px';
         div.innerHTML = `
-            <div class="klk-tree-node-inner">
-                <span class="klk-checkbox klk-checkbox-normal">
-                    <span class="klk-checkbox-base"><input type="checkbox" name="" id=""></span>
-                </span>
-                <span class="klk-tree-node-title">${value.province_name}</span>
-            </div>`;
+                <div class="klk-tree-node-inner">
+                    <span class="klk-checkbox klk-checkbox-normal">
+                        <span class="klk-checkbox-base"><input type="checkbox" name="" id="">
+                        <i class="fa-solid fa-check"></i></span>
+                    </span>
+                    <span class="klk-tree-node-title">${value.name}
+                    </span>
+                </div>`;
         // Append div vào nơi bạn muốn hiển thị
         treeSetItem.appendChild(div);
     });
+});
 }
 
-getApi(); // Call the function to test
+
+getApi();
 
 
+// ========================================================================= //
+//  // checbox destination and categories
+// ========================================================================= //
 // Checkboxes for destination 
 const checkDTNs = document.querySelectorAll('.klk-tree-node');
 checkDTNs.forEach(checkDTN => {
