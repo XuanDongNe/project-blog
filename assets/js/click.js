@@ -19,7 +19,6 @@ function addItem(selectedCategory) {
 
 function render(isRemove) {
     let categoryItem = JSON.parse(sessionStorage.getItem('ticket')) ?? ticket;
-    const sub_select = JSON.parse(sessionStorage.getItem('ticket')) ?? ticket; // xu li chi muc 
     if (categoryItem.length < 1) {
         var nullChosen = document.querySelector('.chosen-list');
         return nullChosen.style.display = 'none';
@@ -60,12 +59,14 @@ function renderSpan(categoryItem, isRemove) {
 }
 
 function deleteItem(index) {
-    const categoryItem = JSON.parse(sessionStorage.getItem('ticket'));
-    const filterData = categoryItem.filter((_el, _index) => _index != index)
-    sessionStorage.removeItem('ticket', JSON.stringify(filterData));
-    sessionStorage.setItem('ticket', JSON.stringify(filterData));
+    // Xóa phần tử từ mảng ticket.
+    if (index >= 0 && index < ticket.length) {
+        ticket.splice(index, 1);
+    }
+    // Cập nhật 'ticket' trong sessionStorage.
+    sessionStorage.setItem('ticket', JSON.stringify(ticket));
+    // Render sau khi xóa.
     render(true);
-    // addItem(categoryItem,true);
 }
 
 
@@ -80,7 +81,7 @@ async function getApiVietNam() {
     try {
         let response = await axios.get("https://provinces.open-api.vn/api/");
         provincesVietNam = Object.keys(response.data).map(key => response.data[key]);
-        renderData(provincesVietNam,"vietnam");
+        renderData(provincesVietNam, "vietnam");
     } catch (e) {
         console.error("Error fetching data:", e);
     }
@@ -91,7 +92,7 @@ async function getApiThaiLand() {
         let response = await axios.get("https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_province_with_amphure_tambon.json");
         provincesThaiLand = Object.keys(response.data).map(key => response.data[key]);
         console.log(provincesThaiLand);
-        renderData(provincesThaiLand,"thailand");
+        renderData(provincesThaiLand, "thailand");
     } catch (e) {
         console.error("Error fetching data:", e);
     }
@@ -120,7 +121,6 @@ function renderData(provinces, country) {
 
 function checkRender(index, event, country) {
     event.stopPropagation();
-
     let countryOfSelect = document.querySelector(`.klk-tree-node.main.${country}`);
     let treeSetItem = countryOfSelect.querySelectorAll('.klk-tree-sub');
     let checkboxElement = treeSetItem[index].querySelector('.klk-checkbox-base.api');
@@ -128,18 +128,15 @@ function checkRender(index, event, country) {
 
     // Toggle the 'klk-checkbox-checked' class
     checkboxElement.classList.toggle('klk-checkbox-checked');
-    addSelectIntoTicket( nodeName);
 
-
+    isClickCheckbox(checkboxElement, nodeName);
 }
 
 function addSelectIntoTicket(name) {
-    ticket.push({  name: name });
+    ticket.push({ name: name });
     sessionStorage.setItem('ticket', JSON.stringify(ticket));
     render(true);
 }
-
-
 
 getApiVietNam();
 getApiThaiLand();
@@ -167,7 +164,6 @@ function toggleShowHide(element) {
     let subElements = element.querySelectorAll('.klk-tree-sub');
     let icon = element.querySelector('.fa-angle-down');
     icon.classList.toggle('rotate');
-
     subElements.forEach(subElement => {
         //thêm class show bằng cách bật tắt
         subElement.classList.toggle('show');
@@ -186,20 +182,39 @@ function toggleCheckBox(checkBox, event) {
     }
 
     let checkboxElement = checkBox.querySelector('.klk-checkbox-base');
+    let nodeName = checkBox.querySelector('.klk-tree-node-title').textContent.trim();
 
     // Toggle the class on the checkbox
     checkboxElement.classList.toggle('klk-checkbox-checked');
+
+    isClickCheckbox(checkboxElement, nodeName);
 }
 
 const checkInputs = document.querySelectorAll('.klk-checkbox-base');
 checkInputs.forEach(checkInput => {
-    checkInput.addEventListener('click', (event) => toggleCheckInput(checkInput, event));
+    checkInput.addEventListener('change', (event) => toggleCheckInput(checkInput, event));
 });
 
 function toggleCheckInput(checkInput, event) {
     event.stopPropagation();
+    let nodeName = checkInput.querySelector('.klk-tree-node-title').textContent.trim();
     checkInput.classList.toggle('klk-checkbox-checked');
+    isClickCheckbox(checkInput, nodeName);
 }
+
+function isClickCheckbox(element, name) {
+    if (element.classList.contains('klk-checkbox-checked')) {
+        // Nếu có, thì thêm vào ticket
+        addSelectIntoTicket(name);
+    } else {
+        // Nếu không, thì xóa khỏi ticket
+        const categoryItem = JSON.parse(sessionStorage.getItem('ticket')) || ticket;
+        const index = categoryItem.findIndex(item => item.name === name);
+        deleteItem(index);
+    }
+}
+
+
 
 
 
