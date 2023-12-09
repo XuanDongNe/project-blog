@@ -204,6 +204,7 @@ function toggleCheckInput(checkInput, event) {
     let nodeName = checkInput.querySelector('.klk-tree-node-title').textContent.trim();
     checkInput.classList.toggle('klk-checkbox-checked');
     isClickCheckbox(checkInput, nodeName);
+    
 }
 
 function isClickCheckbox(element, name) {
@@ -216,6 +217,7 @@ function isClickCheckbox(element, name) {
         const index = categoryItem.findIndex(item => item.name === name);
         deleteItem(index);
     }
+
 }
 
 // ========================================================================= //
@@ -225,7 +227,7 @@ const clearAll = document.querySelector('.clear-selection');
 clearAll.addEventListener('click', (event) => getClearAllSelect(clearAll, event));
 
 function getClearAllSelect() {
-    ticket.splice(0, ticket.length); // Xóa hết phần tử trong mảng
+    ticket =[];// Xóa hết phần tử trong mảng
     sessionStorage.setItem("ticket", JSON.stringify(ticket));
     render(true);
 }
