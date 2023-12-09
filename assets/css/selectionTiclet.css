@@ -343,3 +343,7 @@ i.fa-solid.fa-angle-down.rotate {
     color: #fff;
     opacity: 1;
 }
+
+.klk-checkbox-base:hover  {
+   border: 1px solid var(--primary-key) ;
+}
