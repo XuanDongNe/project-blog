@@ -198,9 +198,6 @@ checkInputs.forEach(checkInput => {
 
 function toggleCheckInput(checkInput, event) {
     event.stopPropagation();
-    if (event.target.closest('.klk-tree-node.destination')) {
-        return;
-    }
     let nodeName = checkInput.querySelector('.klk-tree-node-title').textContent.trim();
     checkInput.classList.toggle('klk-checkbox-checked');
     isClickCheckbox(checkInput, nodeName);
