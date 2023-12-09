@@ -1,7 +1,7 @@
 
 var ticket = [];
 addItem();
-
+renderIndex();
 
 // ========================================================================= //
 //  // VÉ Ticket
@@ -18,23 +18,24 @@ function addItem(selectedCategory) {
 }
 
 function render(isRemove) {
-    const categoryItem = JSON.parse(sessionStorage.getItem('ticket')); // xu li chosen
-    const sub_select = JSON.parse(sessionStorage.getItem('ticket')); // xu li chi muc 
+    let categoryItem = JSON.parse(sessionStorage.getItem('ticket')) ?? ticket;
+    const sub_select = JSON.parse(sessionStorage.getItem('ticket')) ?? ticket; // xu li chi muc 
     if (categoryItem.length < 1) {
         var nullChosen = document.querySelector('.chosen-list');
         return nullChosen.style.display = 'none';
     }
-    renderIndex(sub_select);
     renderSpan(categoryItem, isRemove);
 
 }
 
-function renderIndex(sub_select) {
+function renderIndex() {
+    const sub_select = JSON.parse(sessionStorage.getItem('ticket')) ?? ticket; // xu li chi muc 
     let indexContainer = document.querySelector('.sub-select');
-    for (let i = 0; i < sub_select.length; i++) {
+    for (let i = 0; i < 1; i++) {
         let h3 = document.createElement('h3');
-        h3.innerHTML = `<h3> ${sub_select[i].name} </h3>`;
+        h3.innerHTML = `<h3> ${sub_select[0].name} </h3>`;
         indexContainer.appendChild(h3);
+        break;
     }
 }
 
@@ -72,65 +73,103 @@ function deleteItem(index) {
 //  // call api province
 // ========================================================================= //
 
-let provinces = [];
+let provincesVietNam = [];
+let provincesThaiLand = [];
 
-async function getApi() {
+async function getApiVietNam() {
     try {
         let response = await axios.get("https://provinces.open-api.vn/api/");
-        provinces = Object.keys(response.data).map(key => response.data[key]);
-        console.log(provinces);
-        renderData(provinces);
+        provincesVietNam = Object.keys(response.data).map(key => response.data[key]);
+        renderData(provincesVietNam,"vietnam");
     } catch (e) {
         console.error("Error fetching data:", e);
     }
 }
 
-function renderData(provinces) {
-    let treeSetItems = document. querySelectorAll('.klk-tree-node.main');
+async function getApiThaiLand() {
+    try {
+        let response = await axios.get("https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_province_with_amphure_tambon.json");
+        provincesThaiLand = Object.keys(response.data).map(key => response.data[key]);
+        console.log(provincesThaiLand);
+        renderData(provincesThaiLand,"thailand");
+    } catch (e) {
+        console.error("Error fetching data:", e);
+    }
+}
 
-    treeSetItems.forEach((treeSetItem) => {
+function renderData(provinces, country) {
+    let treeSetItem = document.querySelector(`.klk-tree-node.main.${country}`);
     provinces.forEach((value, index) => {
         let div = document.createElement('div');
         div.className = 'klk-tree-sub klk-tree-node';
         div.style.paddingLeft = '32px';
         div.innerHTML = `
-                <div class="klk-tree-node-inner">
-                    <span class="klk-checkbox klk-checkbox-normal">
-                        <span class="klk-checkbox-base"><input type="checkbox" name="" id="">
-                        <i class="fa-solid fa-check"></i></span>
-                    </span>
-                    <span class="klk-tree-node-title">${value.name}
-                    </span>
-                </div>`;
-        // Append div vào nơi bạn muốn hiển thị
+            <div class="klk-tree-node-inner" onclick ="checkRender('${index}',event, '${country}')">
+                <span class="klk-checkbox" >
+                    <span class="klk-checkbox-base klk-checkbox-normal api"><input type="checkbox" name="" id="">
+                    <i class="fa-solid fa-check"></i></span>
+                </span>
+                <span class="klk-tree-node-title">
+                ${country === 'vietnam' ? value.name : value.name_en}
+                </span>
+            </div>`;
         treeSetItem.appendChild(div);
     });
-});
 }
 
 
-getApi();
+function checkRender(index, event, country) {
+    event.stopPropagation();
 
+    let countryOfSelect = document.querySelector(`.klk-tree-node.main.${country}`);
+    let treeSetItem = countryOfSelect.querySelectorAll('.klk-tree-sub');
+    let checkboxElement = treeSetItem[index].querySelector('.klk-checkbox-base.api');
+    let nodeName = treeSetItem[index].querySelector('.klk-tree-node-title').textContent.trim();
+
+    // Toggle the 'klk-checkbox-checked' class
+    checkboxElement.classList.toggle('klk-checkbox-checked');
+    addSelectIntoTicket( nodeName);
+
+
+}
+
+function addSelectIntoTicket(name) {
+    ticket.push({  name: name });
+    sessionStorage.setItem('ticket', JSON.stringify(ticket));
+    render(true);
+}
+
+
+
+getApiVietNam();
+getApiThaiLand();
 
 // ========================================================================= //
 //  // checbox destination and categories
 // ========================================================================= //
 // Checkboxes for destination 
-const checkDTNs = document.querySelectorAll('.klk-tree-node');
+const checkDTNs = document.querySelectorAll('.klk-tree-node.destination');
 checkDTNs.forEach(checkDTN => {
     checkDTN.addEventListener('click', (event) => toggleCheckDTN(checkDTN, event));
 });
 
 function toggleCheckDTN(checkDTN, event) {
-    // Ngăn chặn sự kiện từ việc lan truyền lên cấp cao hơn
-    event.stopPropagation();
+    // Kiểm tra xem phần tử được nhấp vào có phải là klk-checkbox-base không
+    if (event.target.closest('.klk-checkbox-base')) {
+        // Nếu là klk-checkbox-base, thì không thực hiện toggle show/hidden
+        return;
+    }
 
-    let subElements = checkDTN.querySelectorAll('.klk-tree-sub');
-    let icon = checkDTN.querySelector('.fa-angle-down');
+    toggleShowHide(checkDTN);
+}
+
+function toggleShowHide(element) {
+    let subElements = element.querySelectorAll('.klk-tree-sub');
+    let icon = element.querySelector('.fa-angle-down');
     icon.classList.toggle('rotate');
 
     subElements.forEach(subElement => {
-        // Toggle the 'show' class to control the display property
+        //thêm class show bằng cách bật tắt
         subElement.classList.toggle('show');
     });
 }
@@ -138,16 +177,31 @@ function toggleCheckDTN(checkDTN, event) {
 // Checkboxes for categories 
 const checkBoxes = document.querySelectorAll('.klk-tree-node-inner');
 checkBoxes.forEach(checkBox => {
-    checkBox.addEventListener('click', () => toggleCheckBox(checkBox));
+    checkBox.addEventListener('click', (event) => toggleCheckBox(checkBox, event));
 });
 
-function toggleCheckBox(checkBox) {
-    // Find the checkbox inside the clicked element
-    let checkboxElement = checkBox.querySelector('.klk-checkbox-normal');
+function toggleCheckBox(checkBox, event) {
+    if (event.target.closest('.klk-tree-node.destination')) {
+        return;
+    }
+
+    let checkboxElement = checkBox.querySelector('.klk-checkbox-base');
 
     // Toggle the class on the checkbox
     checkboxElement.classList.toggle('klk-checkbox-checked');
 }
+
+const checkInputs = document.querySelectorAll('.klk-checkbox-base');
+checkInputs.forEach(checkInput => {
+    checkInput.addEventListener('click', (event) => toggleCheckInput(checkInput, event));
+});
+
+function toggleCheckInput(checkInput, event) {
+    event.stopPropagation();
+    checkInput.classList.toggle('klk-checkbox-checked');
+}
+
+
 
 
 
