@@ -154,6 +154,7 @@ function toggleCheckDTN(checkDTN, event) {
     // Kiểm tra xem phần tử được nhấp vào có phải là klk-checkbox-base không
     if (event.target.closest('.klk-checkbox-base')) {
         // Nếu là klk-checkbox-base, thì không thực hiện toggle show/hidden
+        toggleCheckInput(checkDTN.querySelector('.klk-checkbox-base'), event, true);
         return;
     }
 
@@ -177,8 +178,8 @@ checkBoxes.forEach(checkBox => {
 });
 
 function toggleCheckBox(checkBox, event) {
+    
     if (event.target.closest('.klk-tree-node.destination')) {
-        toggleCheckInput(checkDTN.querySelector('.klk-checkbox-base'), event);
         return;
     }
 
@@ -187,21 +188,23 @@ function toggleCheckBox(checkBox, event) {
 
     // Toggle the class on the checkbox
     checkboxElement.classList.toggle('klk-checkbox-checked');
-
     isClickCheckbox(checkboxElement, nodeName);
 }
 
 const checkInputs = document.querySelectorAll('.klk-checkbox-base');
 checkInputs.forEach(checkInput => {
-    checkInput.addEventListener('change', (event) => toggleCheckInput(checkInput, event));
+    checkInput.addEventListener('change', (event) => toggleCheckInput(checkInput, event, false));
 });
 
-function toggleCheckInput(checkInput, event) {
+function toggleCheckInput(checkInput, event, isCheckOfCountry) {
     event.stopPropagation();
+    if (isCheckOfCountry) {
+        return  checkInput.classList.toggle('klk-checkbox-checked');;
+    }
     let nodeName = checkInput.querySelector('.klk-tree-node-title').textContent.trim();
     checkInput.classList.toggle('klk-checkbox-checked');
     isClickCheckbox(checkInput, nodeName);
-    
+
 }
 
 function isClickCheckbox(element, name) {
@@ -224,7 +227,7 @@ const clearAll = document.querySelector('.clear-selection');
 clearAll.addEventListener('click', (event) => getClearAllSelect(clearAll, event));
 
 function getClearAllSelect() {
-    ticket =[];// Xóa hết phần tử trong mảng
+    ticket = [];// Xóa hết phần tử trong mảng
     sessionStorage.setItem("ticket", JSON.stringify(ticket));
     render(true);
 }
