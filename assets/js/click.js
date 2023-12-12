@@ -35,17 +35,17 @@ function render(isRemove) {
 function renderIndex() {
     const sub_select = JSON.parse(sessionStorage.getItem('ticket')) ?? ticket; // xu li chi muc 
     let indexContainer = document.querySelector('.sub-select');
-   let itemDestination = document.querySelectorAll('.catalog .klk-tree-node-inner');
-   let checkInputDes ;
+    let itemDestination = document.querySelectorAll('.catalog .klk-tree-node-inner');
+    let checkInputDes;
     for (let i = 0; i < 1; i++) {
         let h3 = document.createElement('h3');
         h3.innerHTML = `<h3> ${sub_select[0].name} </h3>`;
         indexContainer.appendChild(h3);
-         checkInputDes = findElementByName(itemDestination, sub_select[0].name);
+        checkInputDes = findElementByName(itemDestination, sub_select[0].name);
         break;
     }
     checkInputDes.querySelector('.klk-checkbox-base').classList.add('klk-checkbox-checked');
-    
+
 }
 
 function renderSpan(categoryItem, isRemove) {
@@ -70,7 +70,7 @@ function renderSpan(categoryItem, isRemove) {
 
 function deleteItem(index) {
     const indexOfTicket = ticket.findIndex(existingItem => existingItem.name === ticket[index].name);
-    toggleCheckInputByIndex(indexOfTicket,index);
+    toggleCheckInputByIndex(indexOfTicket, index);
 
 }
 
@@ -168,18 +168,6 @@ function checkCatalog(index, event) {
 
 }
 
-// function isClickCatalog(checkboxElement, nodeName) {
-//     if (checkboxElement.classList.contains('klk-checkbox-checked')) {
-//         // Nếu có, thì thêm vào ticket
-//         addSelectIntoTicket(nodeName);
-//     } else {
-//         // Nếu không, thì xóa khỏi ticket
-//         const categoryItem = JSON.parse(sessionStorage.getItem('ticket')) || ticket;
-//         const index = categoryItem.findIndex(item => item.name === nodeName);
-//         deleteItem(index);
-//     }
-// }
-
 renderForTicketCatalog();
 
 
@@ -213,25 +201,39 @@ async function getApiThaiLand() {
 
 function renderData(provinces, country) {
     let treeSetItem = document.querySelector(`.klk-tree-node.main.${country}`);
-    provinces.forEach((value, index) => {
-        let div = document.createElement('div');
-        div.className = 'klk-tree-sub klk-tree-node';
-        div.style.paddingLeft = '32px';
-        div.innerHTML = `
-            <div class="klk-tree-node-inner" onclick ="checkRender('${index}',event, '${country}')">
-                <span class="klk-checkbox" >
-                    <span class="klk-checkbox-base klk-checkbox-normal api">
-                    <input type="checkbox" name="" id="">
-                    <i class="fa-solid fa-check">
-                    </i></span>
-                </span>
-                <span class="klk-tree-node-title">
-                ${country === 'vietnam' ? value.name : value.name_en}
-                </span>
-            </div>`;
-        treeSetItem.appendChild(div);
+    const desiredIndexesVietNam = [1, 4, 5, 6, 7, 8,11,12,13];
+    const desiredIndexesThaiLand = [2, 3, 10, 5, 6];
+    let desiredIndexes;
+    if (country === 'vietnam') {
+        desiredIndexes = desiredIndexesVietNam;
+    } else {
+        desiredIndexes = desiredIndexesThaiLand;
+    }
+
+    desiredIndexes.forEach((desiredIndex) => {
+        const value = provinces[desiredIndex];
+
+        if (value) {
+            let div = document.createElement('div');
+            div.className = 'klk-tree-sub klk-tree-node';
+            div.style.paddingLeft = '32px';
+            div.innerHTML = `
+                <div class="klk-tree-node-inner" onclick ="checkRender('${desiredIndex}',event, '${country}')">
+                    <span class="klk-checkbox" >
+                        <span class="klk-checkbox-base klk-checkbox-normal api">
+                        <input type="checkbox" name="" id="">
+                        <i class="fa-solid fa-check">
+                        </i></span>
+                    </span>
+                    <span class="klk-tree-node-title">
+                    ${country === 'vietnam' ? value.name : value.name_en}
+                    </span>
+                </div>`;
+            treeSetItem.appendChild(div);
+        }
     });
 }
+
 
 
 function checkRender(index, event, country) {
