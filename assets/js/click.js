@@ -201,16 +201,17 @@ async function getApiThaiLand() {
 
 function renderData(provinces, country) {
     let treeSetItem = document.querySelector(`.klk-tree-node.main.${country}`);
-    const desiredIndexesVietNam = [1, 4, 5, 6, 7, 8,11,12,13];
+    const desiredIndexesVietNam = [1, 4, 5, 6, 7, 8, 11, 12, 13];
     const desiredIndexesThaiLand = [2, 3, 10, 5, 6];
     let desiredIndexes;
+
     if (country === 'vietnam') {
         desiredIndexes = desiredIndexesVietNam;
     } else {
         desiredIndexes = desiredIndexesThaiLand;
     }
 
-    desiredIndexes.forEach((desiredIndex) => {
+    desiredIndexes.forEach((desiredIndex, i) => {
         const value = provinces[desiredIndex];
 
         if (value) {
@@ -218,7 +219,7 @@ function renderData(provinces, country) {
             div.className = 'klk-tree-sub klk-tree-node';
             div.style.paddingLeft = '32px';
             div.innerHTML = `
-                <div class="klk-tree-node-inner" onclick ="checkRender('${desiredIndex}',event, '${country}')">
+                <div class="klk-tree-node-inner" onclick="checkRender(${i}, event, '${country}')">
                     <span class="klk-checkbox" >
                         <span class="klk-checkbox-base klk-checkbox-normal api">
                         <input type="checkbox" name="" id="">
@@ -233,6 +234,7 @@ function renderData(provinces, country) {
         }
     });
 }
+
 
 
 
