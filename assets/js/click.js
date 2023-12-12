@@ -89,7 +89,7 @@ function toggleCheckInputByIndex(indexOfTicket, index) {
     const checkInputDes = findElementByName(itemDestination, itemName);
     const checkInputCata = findElementByName(itemCatalog, itemName);
 
-    if (checkInputDes && checkInputDes.querySelector('.klk-checkbox-base').classList.contains('klk-checkbox-checked')) {
+    if (checkInputDes != null) {
         hideCheckBox(checkInputDes, index);
     } else if (checkInputCata) {
         hideCheckBox(checkInputCata, index);
@@ -164,22 +164,21 @@ function checkCatalog(index, event) {
     let nodeName = treeSetItem[index].querySelector('.klk-tree-node-title').textContent.trim();
 
     checkboxElement.classList.toggle('klk-checkbox-checked');
-
-    isClickCatalog(checkboxElement, nodeName);
+    isClickCheckbox(checkboxElement, nodeName);
 
 }
 
-function isClickCatalog(checkboxElement, nodeName) {
-    if (checkboxElement.classList.contains('klk-checkbox-checked')) {
-        // Nếu có, thì thêm vào ticket
-        addSelectIntoTicket(nodeName);
-    } else {
-        // Nếu không, thì xóa khỏi ticket
-        const categoryItem = JSON.parse(sessionStorage.getItem('ticket')) || ticket;
-        const index = categoryItem.findIndex(item => item.name === nodeName);
-        deleteItem(index);
-    }
-}
+// function isClickCatalog(checkboxElement, nodeName) {
+//     if (checkboxElement.classList.contains('klk-checkbox-checked')) {
+//         // Nếu có, thì thêm vào ticket
+//         addSelectIntoTicket(nodeName);
+//     } else {
+//         // Nếu không, thì xóa khỏi ticket
+//         const categoryItem = JSON.parse(sessionStorage.getItem('ticket')) || ticket;
+//         const index = categoryItem.findIndex(item => item.name === nodeName);
+//         deleteItem(index);
+//     }
+// }
 
 renderForTicketCatalog();
 
@@ -309,22 +308,6 @@ function toggleCheckBox(checkBox, event) {
     isClickCheckbox(checkboxElement, nodeName);
 }
 
-// const checkInputs = document.querySelectorAll('.klk-checkbox-base');
-// checkInputs.forEach(checkInput => {
-//     checkInput.addEventListener('change', (event) => toggleCheckInput(checkInput, event, false));
-// });
-
-// function toggleCheckInput(checkInput, event, isCheckOfCountry) {
-//     event.stopPropagation();
-//     if (isCheckOfCountry) {
-//         return checkInput.classList.toggle('klk-checkbox-checked');;
-//     }
-//     let titleElement = checkInput.parentNode.querySelector('.klk-tree-node-title');
-// let nodeName = titleElement.textContent.trim();
-//     checkInput.classList.toggle('klk-checkbox-checked');
-//     isClickCheckbox(checkInput, nodeName);
-
-// }
 
 function isClickCheckbox(element, name) {
     if (element.classList.contains('klk-checkbox-checked')) {
