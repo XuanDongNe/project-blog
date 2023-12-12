@@ -138,7 +138,7 @@ function renderForTicketCatalog(isRemove) {
     catalogItem.forEach((item, index) => {
         //xử lí cho phần chọn categoryItem
         let div = document.createElement('div');
-        div.className = 'klk-tree-node-inner ';
+        div.className = 'klk-tree-node-inner  ';
         div.addEventListener('click', event => checkCatalog(index, event))
         div.innerHTML = `
             <span class="klk-checkbox klk-checkbox-normal ">
@@ -219,7 +219,7 @@ function renderData(provinces, country) {
             div.className = 'klk-tree-sub klk-tree-node';
             div.style.paddingLeft = '32px';
             div.innerHTML = `
-                <div class="klk-tree-node-inner" onclick="checkRender(${i}, event, '${country}')">
+                <div class="klk-tree-node-inner child" onclick="checkRender(${i}, event, '${country}')">
                     <span class="klk-checkbox" >
                         <span class="klk-checkbox-base klk-checkbox-normal api">
                         <input type="checkbox" name="" id="">
@@ -247,7 +247,7 @@ function checkRender(index, event, country) {
 
     // Toggle the 'klk-checkbox-checked' class
     checkboxElement.classList.toggle('klk-checkbox-checked');
-    console.log(index);
+    console.log(index); 
     isClickCheckbox(checkboxElement, nodeName);
 }
 
@@ -333,11 +333,28 @@ const clearAll = document.querySelector('.clear-selection');
 clearAll.addEventListener('click', (event) => getClearAllSelect(clearAll, event));
 
 function getClearAllSelect() {
-    ticket.splice(0, ticket.length); // Xóa hết phần tử trong mảng
-    sessionStorage.setItem("ticket", JSON.stringify(ticket));
+   
+    let trees = document.querySelectorAll('.klk-tree.klk-tree-checkable.klk-tree-multiple');
+
+    trees.forEach(tree => {
+        ticket.splice(0, ticket.length); // Clear all elements in the array
+        sessionStorage.setItem("ticket", JSON.stringify(ticket));
+
+        let checkboxContainers = tree.querySelectorAll('.klk-checkbox-base.klk-checkbox-checked');
+        checkboxContainers.forEach(container => {
+            // Find the closest ancestor element with the class 'klk-tree-node'
+            let treeNode = findAncestorWithClass(container, 'klk-tree-node-inner');
+            // Check if a parent with the specified class was found
+            if (treeNode) {
+                hideCheckBox(treeNode, null);
+            }
+        });
+    });
     render(true);
 }
 
-
-
-
+// Helper function to find the closest ancestor with a specific class
+function findAncestorWithClass(element, className) {
+    while ((element = element.parentElement) && !element.classList.contains(className));
+    return element;
+}
