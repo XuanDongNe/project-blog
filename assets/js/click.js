@@ -1,10 +1,12 @@
 
 var ticket = [];
+
 addItem();
-renderIndex();
+
+
 
 // ========================================================================= //
-//  // VÉ Ticket
+//  // HAM RENDER CHO MUC TICKET OR DESTINATION DUOC CHON
 // ========================================================================= //
 function addItem(selectedCategory) {
     const newItem = {
@@ -14,33 +16,40 @@ function addItem(selectedCategory) {
 
     sessionStorage.setItem('ticket', JSON.stringify(ticket));
 
+
     render(false);
 }
 
 function render(isRemove) {
     let categoryItem = JSON.parse(sessionStorage.getItem('ticket')) ?? ticket;
+    var nullChosen = document.querySelector('.chosen-list');
     if (categoryItem.length < 1) {
-        var nullChosen = document.querySelector('.chosen-list');
         return nullChosen.style.display = 'none';
     }
+    nullChosen.style.display = 'block';
     renderSpan(categoryItem, isRemove);
+
 
 }
 
 function renderIndex() {
     const sub_select = JSON.parse(sessionStorage.getItem('ticket')) ?? ticket; // xu li chi muc 
     let indexContainer = document.querySelector('.sub-select');
+   let itemDestination = document.querySelectorAll('.catalog .klk-tree-node-inner');
+   let checkInputDes ;
     for (let i = 0; i < 1; i++) {
         let h3 = document.createElement('h3');
         h3.innerHTML = `<h3> ${sub_select[0].name} </h3>`;
         indexContainer.appendChild(h3);
+         checkInputDes = findElementByName(itemDestination, sub_select[0].name);
         break;
     }
+    checkInputDes.querySelector('.klk-checkbox-base').classList.add('klk-checkbox-checked');
+    
 }
 
 function renderSpan(categoryItem, isRemove) {
     let itemList = document.querySelector('.item-list');
-
     // neu co remove thi xoa het va duyet lai tu dau 
     if (isRemove) {
         itemList.innerHTML = '';
@@ -51,23 +60,129 @@ function renderSpan(categoryItem, isRemove) {
         let span = document.createElement('span');
         span.innerHTML = `<div class="selected-tag">
                             <div class="name">${item.name}</div> 
-                            <i class='bx bx-x' onclick="deleteItem('${index}')"></i>
+                            <i class='bx bx-x' "></i>
                         </div>`;
         itemList.appendChild(span);
+        span.querySelector('.bx-x').addEventListener('click', () => deleteItem(index));
     });
-
 }
+
 
 function deleteItem(index) {
-    // Xóa phần tử từ mảng ticket.
+    const indexOfTicket = ticket.findIndex(existingItem => existingItem.name === ticket[index].name);
+    toggleCheckInputByIndex(indexOfTicket,index);
+
+}
+
+function toggleCheckInputByIndex(indexOfTicket, index) {
+    // Lấy element có index tương ứng
+    let itemDestination, itemCatalog;
+
+    // Kiểm tra index thuộc danh sách nào
+    itemDestination = document.querySelectorAll('.klk-tree-sub');
+    itemCatalog = document.querySelectorAll('.catalog .klk-tree-node-inner');
+
+    // Lấy tên của phần tử trong mảng ticket tại vị trí indexOfTicket
+    const itemName = ticket[indexOfTicket].name;
+
+    // Tìm element có tên tương ứng trong danh sách
+    const checkInputDes = findElementByName(itemDestination, itemName);
+    const checkInputCata = findElementByName(itemCatalog, itemName);
+
+    if (checkInputDes && checkInputDes.querySelector('.klk-checkbox-base').classList.contains('klk-checkbox-checked')) {
+        hideCheckBox(checkInputDes, index);
+    } else if (checkInputCata) {
+        hideCheckBox(checkInputCata, index);
+    }
+
+}
+
+// Hàm tìm element có tên tương ứng trong danh sách
+function findElementByName(elements, name) {
+    return Array.from(elements).find(element => {
+        const nodeName = element.querySelector('.klk-tree-node-title').textContent.trim();
+        return nodeName === name;
+    });
+}
+
+// ẩn checkbox được lựa chọn 
+function hideCheckBox(checkInput, index) {
+    if (checkInput) {
+        checkInput.querySelector('.klk-checkbox-base').classList.remove('klk-checkbox-checked');
+    }
+
     if (index >= 0 && index < ticket.length) {
         ticket.splice(index, 1);
+        sessionStorage.setItem('ticket', JSON.stringify(ticket));
+        // Render sau khi xóa.
+        render(true);
     }
-    // Cập nhật 'ticket' trong sessionStorage.
-    sessionStorage.setItem('ticket', JSON.stringify(ticket));
-    // Render sau khi xóa.
-    render(true);
 }
+
+
+
+
+// ========================================================================= //
+//  // CHON MUC CATOLOG TICKET
+// ========================================================================= //
+var ticketCatalog = [{ nameTicket: 'Công viên giải trí' }, { nameTicket: 'Công viên nước' }, { nameTicket: 'Bảo tàng' }, { nameTicket: 'Công viên & Vườn bách thảo' }, { nameTicket: 'Di tích lịch sử' }];
+function renderForTicketCatalog(isRemove) {
+    sessionStorage.setItem('ticketCatalog', JSON.stringify(ticketCatalog));
+    let catalogItem = JSON.parse(sessionStorage.getItem('ticketCatalog')) ?? ticketCatalog;
+    let itemList = document.querySelector('.klk-tree-node.catalog');
+    // neu co remove thi xoa het va duyet lai tu dau 
+    if (isRemove) {
+        itemList.innerHTML = '';
+    }
+    // duyet lai phan tu chua trong categoryItem
+    catalogItem.forEach((item, index) => {
+        //xử lí cho phần chọn categoryItem
+        let div = document.createElement('div');
+        div.className = 'klk-tree-node-inner ';
+        div.addEventListener('click', event => checkCatalog(index, event))
+        div.innerHTML = `
+            <span class="klk-checkbox klk-checkbox-normal ">
+                <span class="klk-checkbox-base"><input type="checkbox" name="" class="checkbox" id="checkbox">
+                <i class="fa-solid fa-check">
+                    </i>
+                </span>
+            </span>
+            <span class="klk-tree-node-title">${item.nameTicket}</span>
+        `;
+        itemList.appendChild(div);
+
+    });
+    render(true);
+    renderIndex();
+}
+
+function checkCatalog(index, event) {
+    event.stopPropagation();
+    let countryOfSelect = document.querySelector(`.klk-tree-node.catalog`);
+    let treeSetItem = countryOfSelect.querySelectorAll('.klk-tree-node-inner');
+    let checkboxElement = treeSetItem[index].querySelector('.klk-checkbox-base');
+    let nodeName = treeSetItem[index].querySelector('.klk-tree-node-title').textContent.trim();
+
+    checkboxElement.classList.toggle('klk-checkbox-checked');
+
+    isClickCatalog(checkboxElement, nodeName);
+
+}
+
+function isClickCatalog(checkboxElement, nodeName) {
+    if (checkboxElement.classList.contains('klk-checkbox-checked')) {
+        // Nếu có, thì thêm vào ticket
+        addSelectIntoTicket(nodeName);
+    } else {
+        // Nếu không, thì xóa khỏi ticket
+        const categoryItem = JSON.parse(sessionStorage.getItem('ticket')) || ticket;
+        const index = categoryItem.findIndex(item => item.name === nodeName);
+        deleteItem(index);
+    }
+}
+
+renderForTicketCatalog();
+
 
 
 // ========================================================================= //
@@ -91,7 +206,6 @@ async function getApiThaiLand() {
     try {
         let response = await axios.get("https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_province_with_amphure_tambon.json");
         provincesThaiLand = Object.keys(response.data).map(key => response.data[key]);
-        console.log(provincesThaiLand);
         renderData(provincesThaiLand, "thailand");
     } catch (e) {
         console.error("Error fetching data:", e);
@@ -107,8 +221,10 @@ function renderData(provinces, country) {
         div.innerHTML = `
             <div class="klk-tree-node-inner" onclick ="checkRender('${index}',event, '${country}')">
                 <span class="klk-checkbox" >
-                    <span class="klk-checkbox-base klk-checkbox-normal api"><input type="checkbox" name="" id="">
-                    <i class="fa-solid fa-check"></i></span>
+                    <span class="klk-checkbox-base klk-checkbox-normal api">
+                    <input type="checkbox" name="" id="">
+                    <i class="fa-solid fa-check">
+                    </i></span>
                 </span>
                 <span class="klk-tree-node-title">
                 ${country === 'vietnam' ? value.name : value.name_en}
@@ -128,7 +244,7 @@ function checkRender(index, event, country) {
 
     // Toggle the 'klk-checkbox-checked' class
     checkboxElement.classList.toggle('klk-checkbox-checked');
-
+    console.log(index);
     isClickCheckbox(checkboxElement, nodeName);
 }
 
@@ -137,6 +253,8 @@ function addSelectIntoTicket(name) {
     sessionStorage.setItem('ticket', JSON.stringify(ticket));
     render(true);
 }
+
+
 
 getApiVietNam();
 getApiThaiLand();
@@ -172,13 +290,13 @@ function toggleShowHide(element) {
 }
 
 // Checkboxes for categories 
-const checkBoxes = document.querySelectorAll('.klk-tree-node-inner');
-checkBoxes.forEach(checkBox => {
-    checkBox.addEventListener('click', (event) => toggleCheckBox(checkBox, event));
-});
+// const checkBoxes = document.querySelectorAll('.klk-tree-node-inner');
+// checkBoxes.forEach(checkBox => {
+//     checkBox.addEventListener('click', (event) => toggleCheckBox(checkBox, event));
+// });
 
 function toggleCheckBox(checkBox, event) {
-    
+
     if (event.target.closest('.klk-tree-node.destination')) {
         return;
     }
@@ -199,9 +317,9 @@ checkInputs.forEach(checkInput => {
 function toggleCheckInput(checkInput, event, isCheckOfCountry) {
     event.stopPropagation();
     if (isCheckOfCountry) {
-        return  checkInput.classList.toggle('klk-checkbox-checked');;
+        return checkInput.classList.toggle('klk-checkbox-checked');;
     }
-    let nodeName = checkInput.querySelector('.klk-tree-node-title').textContent.trim();
+    let nodeName = checkInput.parentNode.querySelector('.klk-tree-node-title').textContent.trim();
     checkInput.classList.toggle('klk-checkbox-checked');
     isClickCheckbox(checkInput, nodeName);
 
@@ -227,7 +345,7 @@ const clearAll = document.querySelector('.clear-selection');
 clearAll.addEventListener('click', (event) => getClearAllSelect(clearAll, event));
 
 function getClearAllSelect() {
-    ticket = [];// Xóa hết phần tử trong mảng
+    ticket.splice(0, ticket.length); // Xóa hết phần tử trong mảng
     sessionStorage.setItem("ticket", JSON.stringify(ticket));
     render(true);
 }
