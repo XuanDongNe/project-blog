@@ -309,21 +309,22 @@ function toggleCheckBox(checkBox, event) {
     isClickCheckbox(checkboxElement, nodeName);
 }
 
-const checkInputs = document.querySelectorAll('.klk-checkbox-base');
-checkInputs.forEach(checkInput => {
-    checkInput.addEventListener('change', (event) => toggleCheckInput(checkInput, event, false));
-});
+// const checkInputs = document.querySelectorAll('.klk-checkbox-base');
+// checkInputs.forEach(checkInput => {
+//     checkInput.addEventListener('change', (event) => toggleCheckInput(checkInput, event, false));
+// });
 
-function toggleCheckInput(checkInput, event, isCheckOfCountry) {
-    event.stopPropagation();
-    if (isCheckOfCountry) {
-        return checkInput.classList.toggle('klk-checkbox-checked');;
-    }
-    let nodeName = checkInput.parentNode.querySelector('.klk-tree-node-title').textContent.trim();
-    checkInput.classList.toggle('klk-checkbox-checked');
-    isClickCheckbox(checkInput, nodeName);
+// function toggleCheckInput(checkInput, event, isCheckOfCountry) {
+//     event.stopPropagation();
+//     if (isCheckOfCountry) {
+//         return checkInput.classList.toggle('klk-checkbox-checked');;
+//     }
+//     let titleElement = checkInput.parentNode.querySelector('.klk-tree-node-title');
+// let nodeName = titleElement.textContent.trim();
+//     checkInput.classList.toggle('klk-checkbox-checked');
+//     isClickCheckbox(checkInput, nodeName);
 
-}
+// }
 
 function isClickCheckbox(element, name) {
     if (element.classList.contains('klk-checkbox-checked')) {
