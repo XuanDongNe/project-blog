@@ -252,9 +252,19 @@ function checkRender(index, event, country) {
 }
 
 function addSelectIntoTicket(name) {
-    ticket.push({ name: name });
-    sessionStorage.setItem('ticket', JSON.stringify(ticket));
-    render(true);
+    // Kiểm tra xem `name` đã tồn tại trong `ticket` hay chưa
+    if (!isNameInTicket(name)) {
+        ticket.push({ name: name });
+        sessionStorage.setItem('ticket', JSON.stringify(ticket));
+        render(true);
+    } else {
+        console.log(`Tên '${name}' đã tồn tại trong ticket.`);
+    }
+}
+
+// Hàm kiểm tra xem `name` đã tồn tại trong `ticket` hay chưa
+function isNameInTicket(name) {
+    return ticket.some(item => item.name === name);
 }
 
 
@@ -275,7 +285,7 @@ function toggleCheckDTN(checkDTN, event) {
     // Kiểm tra xem phần tử được nhấp vào có phải là klk-checkbox-base không
     if (event.target.closest('.klk-checkbox-base')) {
         // Nếu là klk-checkbox-base, thì không thực hiện toggle show/hidden
-        toggleCheckInput(checkDTN.querySelector('.klk-checkbox-base'), event, true);
+        // checkAllOfDestination(country)
         return;
     }
 
@@ -291,6 +301,70 @@ function toggleShowHide(element) {
         subElement.classList.toggle('show');
     });
 }
+
+function checkAllOfDestination(country) {
+    let tree = document.querySelector(`.klk-tree-node.main.destination.${country}`);
+    let mainCheckbox = tree.querySelector('.klk-checkbox-base');
+    // kiểm tra xem checkbox cha đã được chọn chưa 
+    let checkTree = mainCheckbox.classList.contains('klk-checkbox-checked');
+
+    
+
+    let allChecked = true; // Giả sử tất cả checkbox đã được chọn
+    let treeItems = tree.querySelectorAll('.klk-tree-sub.klk-tree-node');
+
+    // const index = 0;
+    treeItems.forEach((treeItem) => {
+        let checkbox = treeItem.querySelector('.klk-checkbox-base');
+        // lấy phần tử cha để phục vụ cho việc thêm, xóa tên checkbox 
+        let treeNode = findAncestorWithClass(checkbox, 'klk-tree-node-inner');
+        //checkTree chưa được chọn
+        if(!checkTree){
+            checkbox.classList.add('klk-checkbox-checked');
+            // thêm vào lựa chọn
+        addSelectIntoTicket(treeNode.querySelector('.klk-tree-node-title').textContent.trim());
+        }
+      
+        // Nếu có ít nhất một checkbox không chứa 'klk-checkbox-checked', đặt allChecked thành false
+        if (!checkbox.classList.contains('klk-checkbox-checked')) {
+             allChecked = false;
+        }
+        if(checkTree && allChecked){
+            checkbox.classList.remove('klk-checkbox-checked');
+            //xóa đi lựa chọn
+            deleteAllForDestination();
+        }
+    });
+
+    // Nếu tất cả các checkbox đều đã được chọn, thì allChecked sẽ là true
+    if (!allChecked) {
+        // Nếu allChecked là false, thì set lại tất cả các checkbox không chứa 'klk-checkbox-checked'
+        treeItems.forEach((treeItem) => {
+            let checkbox = treeItem.querySelector('.klk-checkbox-base');
+            if (!checkbox.classList.contains('klk-checkbox-checked')) {
+                checkbox.classList.add('klk-checkbox-checked');
+                let treeNode = findAncestorWithClass(checkbox, 'klk-tree-node-inner');
+                addSelectIntoTicket(treeNode.querySelector('.klk-tree-node-title').textContent.trim());
+            }
+        }); 
+    } 
+    
+    if(allChecked ){
+        mainCheckbox.classList.toggle('klk-checkbox-checked');
+    }else {
+        // mainCheckbox.classList.remove('klk-checkbox-checked');
+    }
+   
+}
+
+function deleteAllForDestination(name) {
+    const box = JSON.parse(sessionStorage.getItem('ticket')) || ticket;
+    ticket.splice(1); // Chỉ giữ lại phần tử đầu tiên, xóa từ phần tử thứ hai trở đi
+    renderSpan(ticket,true);
+}
+
+
+
 
 // Checkboxes for categories 
 // const checkBoxes = document.querySelectorAll('.klk-tree-node-inner');
