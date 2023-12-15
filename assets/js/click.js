@@ -243,7 +243,6 @@ function checkRender(index, event, country) {
 
     // Toggle the 'klk-checkbox-checked' class
     checkboxElement.classList.toggle('klk-checkbox-checked');
-    console.log(index); 
     isClickCheckbox(checkboxElement, nodeName);
 }
 
