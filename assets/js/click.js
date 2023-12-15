@@ -67,6 +67,9 @@ function renderSpan(categoryItem, isRemove) {
     });
 }
 
+// ========================================================================= //
+//  // DELETE iTEM BY INDEX OF CATAGORY
+// ========================================================================= //
 
 function deleteItem(index) {
     const indexOfTicket = ticket.findIndex(existingItem => existingItem.name === ticket[index].name);
@@ -119,9 +122,6 @@ function hideCheckBox(checkInput, index) {
     }
 }
 
-
-
-
 // ========================================================================= //
 //  // CHON MUC CATOLOG TICKET
 // ========================================================================= //
@@ -169,8 +169,6 @@ function checkCatalog(index, event) {
 }
 
 renderForTicketCatalog();
-
-
 
 // ========================================================================= //
 //  // call api province
@@ -236,8 +234,6 @@ function renderData(provinces, country) {
 }
 
 
-
-
 function checkRender(index, event, country) {
     event.stopPropagation();
     let countryOfSelect = document.querySelector(`.klk-tree-node.main.${country}`);
@@ -250,6 +246,10 @@ function checkRender(index, event, country) {
     console.log(index); 
     isClickCheckbox(checkboxElement, nodeName);
 }
+
+// ========================================================================= //
+//  // ADD SELECTS INTO TICKET
+// ========================================================================= //
 
 function addSelectIntoTicket(name) {
     // Kiểm tra xem `name` đã tồn tại trong `ticket` hay chưa
@@ -266,8 +266,6 @@ function addSelectIntoTicket(name) {
 function isNameInTicket(name) {
     return ticket.some(item => item.name === name);
 }
-
-
 
 getApiVietNam();
 getApiThaiLand();
@@ -302,76 +300,6 @@ function toggleShowHide(element) {
     });
 }
 
-function checkAllOfDestination(country) {
-    let tree = document.querySelector(`.klk-tree-node.main.destination.${country}`);
-    let mainCheckbox = tree.querySelector('.klk-checkbox-base');
-    // kiểm tra xem checkbox cha đã được chọn chưa 
-    let checkTree = mainCheckbox.classList.contains('klk-checkbox-checked');
-
-    
-
-    let allChecked = true; // Giả sử tất cả checkbox đã được chọn
-    let treeItems = tree.querySelectorAll('.klk-tree-sub.klk-tree-node');
-
-    // const index = 0;
-    treeItems.forEach((treeItem) => {
-        let checkbox = treeItem.querySelector('.klk-checkbox-base');
-        // lấy phần tử cha để phục vụ cho việc thêm, xóa tên checkbox 
-        let treeNode = findAncestorWithClass(checkbox, 'klk-tree-node-inner');
-        //checkTree chưa được chọn
-        if(!checkTree){
-            checkbox.classList.add('klk-checkbox-checked');
-            // thêm vào lựa chọn
-        addSelectIntoTicket(treeNode.querySelector('.klk-tree-node-title').textContent.trim());
-        }
-      
-        // Nếu có ít nhất một checkbox không chứa 'klk-checkbox-checked', đặt allChecked thành false
-        if (!checkbox.classList.contains('klk-checkbox-checked')) {
-             allChecked = false;
-        }
-        if(checkTree && allChecked){
-            checkbox.classList.remove('klk-checkbox-checked');
-            //xóa đi lựa chọn
-            deleteAllForDestination();
-        }
-    });
-
-    // Nếu tất cả các checkbox đều đã được chọn, thì allChecked sẽ là true
-    if (!allChecked) {
-        // Nếu allChecked là false, thì set lại tất cả các checkbox không chứa 'klk-checkbox-checked'
-        treeItems.forEach((treeItem) => {
-            let checkbox = treeItem.querySelector('.klk-checkbox-base');
-            if (!checkbox.classList.contains('klk-checkbox-checked')) {
-                checkbox.classList.add('klk-checkbox-checked');
-                let treeNode = findAncestorWithClass(checkbox, 'klk-tree-node-inner');
-                addSelectIntoTicket(treeNode.querySelector('.klk-tree-node-title').textContent.trim());
-            }
-        }); 
-    } 
-    
-    if(allChecked ){
-        mainCheckbox.classList.toggle('klk-checkbox-checked');
-    }else {
-        // mainCheckbox.classList.remove('klk-checkbox-checked');
-    }
-   
-}
-
-function deleteAllForDestination(name) {
-    const box = JSON.parse(sessionStorage.getItem('ticket')) || ticket;
-    ticket.splice(1); // Chỉ giữ lại phần tử đầu tiên, xóa từ phần tử thứ hai trở đi
-    renderSpan(ticket,true);
-}
-
-
-
-
-// Checkboxes for categories 
-// const checkBoxes = document.querySelectorAll('.klk-tree-node-inner');
-// checkBoxes.forEach(checkBox => {
-//     checkBox.addEventListener('click', (event) => toggleCheckBox(checkBox, event));
-// });
-
 function toggleCheckBox(checkBox, event) {
 
     if (event.target.closest('.klk-tree-node.destination')) {
@@ -399,6 +327,100 @@ function isClickCheckbox(element, name) {
     }
 
 }
+
+// ========================================================================= //
+//  // CheckAll destination And DeleteAll Destination
+// ========================================================================= //
+function checkAllOfDestination(country) {
+    let provincesVietNam =[]; 
+    let provincesThaiLand =[]; 
+    let tree = document.querySelector(`.klk-tree-node.main.destination.${country}`);
+    let mainCheckbox = tree.querySelector('.klk-checkbox-base');
+    // kiểm tra xem checkbox cha đã được chọn chưa 
+    let checkTree = mainCheckbox.classList.contains('klk-checkbox-checked');
+
+    let index = 0;
+
+    let allChecked = true; // Giả sử tất cả checkbox đã được chọn
+    let treeItems = tree.querySelectorAll('.klk-tree-sub.klk-tree-node');
+
+    // const index = 0;
+    treeItems.forEach((treeItem) => {
+        let checkbox = treeItem.querySelector('.klk-checkbox-base');
+        // lấy phần tử cha để phục vụ cho việc thêm, xóa tên checkbox 
+        let treeNode = findAncestorWithClass(checkbox, 'klk-tree-node-inner');
+        // lấy ra tên tỉnh của nước được chọn
+        let nameNode = treeNode.querySelector('.klk-tree-node-title').textContent.trim()
+        // chứa tên tỉnh 
+        if(country == 'vietnam' ){
+            provincesVietNam.push(nameNode);
+        }else {
+            provincesThaiLand.push(nameNode);
+        }
+        //checkTree chưa được chọn
+        if(!checkTree){
+            checkbox.classList.add('klk-checkbox-checked');
+            // thêm vào lựa chọn
+            if(country == 'vietnam' ){
+               addSelectIntoTicket(provincesVietNam[index]);
+            }else {
+                addSelectIntoTicket(provincesThaiLand[index]);
+            }
+            index++;
+        }
+      
+        // Nếu có ít nhất một checkbox không chứa 'klk-checkbox-checked', đặt allChecked thành false
+        if (!checkbox.classList.contains('klk-checkbox-checked')) {
+             allChecked = false;
+        }
+        if(checkTree && allChecked){
+            checkbox.classList.remove('klk-checkbox-checked');
+            //xóa đi lựa chọn
+            if(country == 'vietnam' ){
+                deleteAllForDestination(provincesVietNam[index]);
+             }else {
+                 deleteAllForDestination(provincesThaiLand[index]);
+             }
+             index++;
+        }
+    });
+
+    // Nếu tất cả các checkbox đều đã được chọn, thì allChecked sẽ là true
+    if (!allChecked) {
+        // Nếu allChecked là false, thì set lại tất cả các checkbox không chứa 'klk-checkbox-checked'
+        treeItems.forEach((treeItem) => {
+            let checkbox = treeItem.querySelector('.klk-checkbox-base');
+            if (!checkbox.classList.contains('klk-checkbox-checked')) {
+                checkbox.classList.add('klk-checkbox-checked');
+                let treeNode = findAncestorWithClass(checkbox, 'klk-tree-node-inner');
+                if(country == 'vietnam' ){
+                    addSelectIntoTicket(provincesVietNam[index]);
+                 }else {
+                     addSelectIntoTicket(provincesThaiLand[index]);
+                 }
+                 index++;
+            }
+        }); 
+    } 
+    
+    if(allChecked ){
+        mainCheckbox.classList.toggle('klk-checkbox-checked');
+    }else {
+        // mainCheckbox.classList.remove('klk-checkbox-checked');
+    }
+   
+}
+
+function deleteAllForDestination(name) {
+    if (isNameInTicket(name)) {
+        ticket = ticket.filter(item => item.name !== name); // xóa đi tên
+        sessionStorage.setItem('ticket', JSON.stringify(ticket)); 
+        render(true);
+    } else {
+        console.log(`Tên '${name}' không tồn tại trong ticket.`);
+    }
+}
+
 
 // ========================================================================= //
 //  // CLEAR ALL SELECTION
