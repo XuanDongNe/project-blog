@@ -182,6 +182,7 @@ async function getApiVietNam() {
         let response = await axios.get("https://provinces.open-api.vn/api/");
         provincesVietNam = Object.keys(response.data).map(key => response.data[key]);
         renderData(provincesVietNam, "vietnam");
+        console.log(provincesVietNam);
     } catch (e) {
         console.error("Error fetching data:", e);
     }
@@ -199,7 +200,7 @@ async function getApiThaiLand() {
 
 function renderData(provinces, country) {
     let treeSetItem = document.querySelector(`.klk-tree-node.main.${country}`);
-    const desiredIndexesVietNam = [1, 4, 5, 6, 7, 8, 11, 12, 13];
+    const desiredIndexesVietNam = [0, 49];
     const desiredIndexesThaiLand = [2, 3, 10, 5, 6];
     let desiredIndexes;
 
@@ -250,12 +251,18 @@ function checkRender(index, event, country) {
 //  // ADD SELECTS INTO TICKET
 // ========================================================================= //
 
-function addSelectIntoTicket(name) {
+function addSelectIntoTicket(name, isCities) {
+    // chữa những tỉnh đã được lựa chọn 
+    if(isCities){
+        cities.push(name);
+    }
+   
     // Kiểm tra xem `name` đã tồn tại trong `ticket` hay chưa
     if (!isNameInTicket(name)) {
         ticket.push({ name: name });
         sessionStorage.setItem('ticket', JSON.stringify(ticket));
         render(true);
+        filterTicketsByCategories(name);
     } else {
         console.log(`Tên '${name}' đã tồn tại trong ticket.`);
     }
@@ -331,8 +338,8 @@ function isClickCheckbox(element, name) {
 //  // CheckAll destination And DeleteAll Destination
 // ========================================================================= //
 function checkAllOfDestination(country) {
-    let provincesVietNam =[]; 
-    let provincesThaiLand =[]; 
+    let provincesVietNam = [];
+    let provincesThaiLand = [];
     let tree = document.querySelector(`.klk-tree-node.main.destination.${country}`);
     let mainCheckbox = tree.querySelector('.klk-checkbox-base');
     // kiểm tra xem checkbox cha đã được chọn chưa 
@@ -351,36 +358,36 @@ function checkAllOfDestination(country) {
         // lấy ra tên tỉnh của nước được chọn
         let nameNode = treeNode.querySelector('.klk-tree-node-title').textContent.trim()
         // chứa tên tỉnh 
-        if(country == 'vietnam' ){
+        if (country == 'vietnam') {
             provincesVietNam.push(nameNode);
-        }else {
+        } else {
             provincesThaiLand.push(nameNode);
         }
         //checkTree chưa được chọn
-        if(!checkTree){
+        if (!checkTree) {
             checkbox.classList.add('klk-checkbox-checked');
             // thêm vào lựa chọn
-            if(country == 'vietnam' ){
-               addSelectIntoTicket(provincesVietNam[index]);
-            }else {
+            if (country == 'vietnam') {
+                addSelectIntoTicket(provincesVietNam[index]);
+            } else {
                 addSelectIntoTicket(provincesThaiLand[index]);
             }
             index++;
         }
-      
+
         // Nếu có ít nhất một checkbox không chứa 'klk-checkbox-checked', đặt allChecked thành false
         if (!checkbox.classList.contains('klk-checkbox-checked')) {
-             allChecked = false;
+            allChecked = false;
         }
-        if(checkTree && allChecked){
+        if (checkTree && allChecked) {
             checkbox.classList.remove('klk-checkbox-checked');
             //xóa đi lựa chọn
-            if(country == 'vietnam' ){
+            if (country == 'vietnam') {
                 deleteAllForDestination(provincesVietNam[index]);
-             }else {
-                 deleteAllForDestination(provincesThaiLand[index]);
-             }
-             index++;
+            } else {
+                deleteAllForDestination(provincesThaiLand[index]);
+            }
+            index++;
         }
     });
 
@@ -392,28 +399,28 @@ function checkAllOfDestination(country) {
             if (!checkbox.classList.contains('klk-checkbox-checked')) {
                 checkbox.classList.add('klk-checkbox-checked');
                 let treeNode = findAncestorWithClass(checkbox, 'klk-tree-node-inner');
-                if(country == 'vietnam' ){
+                if (country == 'vietnam') {
                     addSelectIntoTicket(provincesVietNam[index]);
-                 }else {
-                     addSelectIntoTicket(provincesThaiLand[index]);
-                 }
-                 index++;
+                } else {
+                    addSelectIntoTicket(provincesThaiLand[index]);
+                }
+                index++;
             }
-        }); 
-    } 
-    
-    if(allChecked ){
+        });
+    }
+
+    if (allChecked) {
         mainCheckbox.classList.toggle('klk-checkbox-checked');
-    }else {
+    } else {
         // mainCheckbox.classList.remove('klk-checkbox-checked');
     }
-   
+
 }
 
 function deleteAllForDestination(name) {
     if (isNameInTicket(name)) {
         ticket = ticket.filter(item => item.name !== name); // xóa đi tên
-        sessionStorage.setItem('ticket', JSON.stringify(ticket)); 
+        sessionStorage.setItem('ticket', JSON.stringify(ticket));
         render(true);
     } else {
         console.log(`Tên '${name}' không tồn tại trong ticket.`);
@@ -428,7 +435,7 @@ const clearAll = document.querySelector('.clear-selection');
 clearAll.addEventListener('click', (event) => getClearAllSelect(clearAll, event));
 
 function getClearAllSelect() {
-   
+
     let trees = document.querySelectorAll('.klk-tree.klk-tree-checkable.klk-tree-multiple');
 
     trees.forEach(tree => {
@@ -457,74 +464,371 @@ function findAncestorWithClass(element, className) {
 // ========================================================================= //
 //  // PAGINATION
 // ========================================================================= //
-function getPageList(totalPages, page, maxLength){
-    function range(start, end){
-      return Array.from(Array(end - start + 1), (_, i) => i + start);
+function getPageList(totalPages, page, maxLength) {
+    function range(start, end) {
+        return Array.from(Array(end - start + 1), (_, i) => i + start);
     }
-  
+
     var sideWidth = maxLength < 9 ? 1 : 2;
     var leftWidth = (maxLength - sideWidth * 2 - 3) >> 1;
     var rightWidth = (maxLength - sideWidth * 2 - 3) >> 1;
-  
-    if(totalPages <= maxLength){
-      return range(1, totalPages);
+
+    if (totalPages <= maxLength) {
+        return range(1, totalPages);
     }
-  
-    if(page <= maxLength - sideWidth - 1 - rightWidth){
-      return range(1, maxLength - sideWidth - 1).concat(0, range(totalPages - sideWidth + 1, totalPages));
+
+    if (page <= maxLength - sideWidth - 1 - rightWidth) {
+        return range(1, maxLength - sideWidth - 1).concat(0, range(totalPages - sideWidth + 1, totalPages));
     }
-  
-    if(page >= totalPages - sideWidth - 1 - rightWidth){
-      return range(1, sideWidth).concat(0, range(totalPages- sideWidth - 1 - rightWidth - leftWidth, totalPages));
+
+    if (page >= totalPages - sideWidth - 1 - rightWidth) {
+        return range(1, sideWidth).concat(0, range(totalPages - sideWidth - 1 - rightWidth - leftWidth, totalPages));
     }
-  
+
     return range(1, sideWidth).concat(0, range(page - leftWidth, page + rightWidth), 0, range(totalPages - sideWidth + 1, totalPages));
-  }
-  
-  $(function(){
+}
+
+$(function () {
     var numberOfItems = $(".search-result-activity-list .search-result-card").length;
     var limitPerPage = 9; //How many card items visible per a page
     var totalPages = Math.ceil(numberOfItems / limitPerPage);
     var paginationSize = 5; //How many page elements visible in the pagination
     var currentPage;
-  
-    function showPage(whichPage){
-      if(whichPage < 1 || whichPage > totalPages) return false;
-  
-      currentPage = whichPage;
-  
-      $(".search-result-activity-list .search-result-card").hide().slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage).show();
-  
-      $(".pagination li").slice(1, -1).remove();
-  
-      getPageList(totalPages, currentPage, paginationSize).forEach(item => {
-        $("<li>").addClass("page-item").addClass(item ? "current-page" : "dots")
-        .toggleClass("active", item === currentPage).append($("<a>").addClass("page-link")
-        .attr({href: "javascript:void(0)"}).text(item || "...")).insertBefore(".next-page");
-      });
-  
-      $(".previous-page").toggleClass("disable", currentPage === 1);
-      $(".next-page").toggleClass("disable", currentPage === totalPages);
-      return true;
+
+    function showPage(whichPage) {
+        if (whichPage < 1 || whichPage > totalPages) return false;
+
+        currentPage = whichPage;
+
+        $(".search-result-activity-list .search-result-card").hide().slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage).show();
+
+        $(".pagination li").slice(1, -1).remove();
+
+        getPageList(totalPages, currentPage, paginationSize).forEach(item => {
+            $("<li>").addClass("page-item").addClass(item ? "current-page" : "dots")
+                .toggleClass("active", item === currentPage).append($("<a>").addClass("page-link")
+                    .attr({ href: "javascript:void(0)" }).text(item || "...")).insertBefore(".next-page");
+        });
+
+        $(".previous-page").toggleClass("disable", currentPage === 1);
+        $(".next-page").toggleClass("disable", currentPage === totalPages);
+        return true;
     }
-  
+
     $(".pagination").append(
-      $("<li>").addClass("page-item").addClass("previous-page").append($("<a>").addClass("page-link").attr({href: "javascript:void(0)"}).text("Prev")),
-      $("<li>").addClass("page-item").addClass("next-page").append($("<a>").addClass("page-link").attr({href: "javascript:void(0)"}).text("Next"))
+        $("<li>").addClass("page-item").addClass("previous-page").append($("<a>").addClass("page-link").attr({ href: "javascript:void(0)" }).text("Prev")),
+        $("<li>").addClass("page-item").addClass("next-page").append($("<a>").addClass("page-link").attr({ href: "javascript:void(0)" }).text("Next"))
     );
-  
+
     $(".card-content").show();
     showPage(1);
-  
-    $(document).on("click", ".pagination li.current-page:not(.active)", function(){
-      return showPage(+$(this).text());
+
+    $(document).on("click", ".pagination li.current-page:not(.active)", function () {
+        return showPage(+$(this).text());
     });
-  
-    $(".next-page").on("click", function(){
-      return showPage(currentPage + 1);
+
+    $(".next-page").on("click", function () {
+        return showPage(currentPage + 1);
     });
-  
-    $(".previous-page").on("click", function(){
-      return showPage(currentPage - 1);
+
+    $(".previous-page").on("click", function () {
+        return showPage(currentPage - 1);
     });
-  });
+    $(".pagination").toggle(totalPages > 1); // Ẩn phân trang nếu totalPages bằng 1
+});
+
+
+
+// ========================================================================= //
+//  // LIST PRODUCTS
+// ========================================================================= //
+class Ticket {
+    constructor(province, nameOfTicket, nameOfCatalog, price, img) {
+        this.province = province;
+        this.nameOfTicket = nameOfTicket;
+
+        this.nameOfCatalog = nameOfCatalog;
+        this.price = price;
+        this.img = img;
+    }
+}
+
+class Country {
+    constructor(name) {
+        this.name = name;
+        this.tickets = [];
+    }
+
+    addTicket(ticket) {
+        this.tickets.push(ticket);
+    }
+}
+
+class CountryList {
+    constructor() {
+        this.countries = [];
+    }
+
+    addCountry(country) {
+        this.countries.push(country);
+    }
+
+    findCountryByName(name) {
+        return this.countries.find(country => country.name === name);
+    }
+
+    // Các hàm khác có thể được thêm vào tùy theo nhu cầu
+}
+
+// Tạo vé cho Hồ Chí Minh
+const hcmTicket1 = new Ticket('Thành phố Hồ Chí Minh', 'Vé Công Viên Văn Hóa Suối Tiên', 'Công viên giải trí', 150000, 'img1.jpg');
+const hcmTicket2 = new Ticket('Thành phố Hồ Chí Minh', 'Vé Công viên Văn hóa Đầm Sen', 'Công viên giải trí', 200000, 'img2.jpg');
+const hcmTicket3 = new Ticket('Thành phố Hồ Chí Minh', 'Vé Khu vui chơi giải trí Sài Gòn Outcast', 'Công viên giải trí', 200000, 'img3.jpg');
+const hcmTicket4 = new Ticket('Thành phố Hồ Chí Minh', 'Vé Công viên nước Thiên Thanh', 'Công viên nước', 200000, 'img4.jpg');
+const hcmTicket5 = new Ticket('Thành phố Hồ Chí Minh', 'Vé MAIA Pool', 'Công viên nước', 200000, 'img5.jpg');
+const hcmTicket6 = new Ticket('Thành phố Hồ Chí Minh', 'Vé Công Viên Nước Củ Chi', 'Công viên nước', 100000, 'img6.jpg');
+const hcmTicket7 = new Ticket('Thành phố Hồ Chí Minh', 'Vé Bảo Tàng Lịch Sử Việt Nam', 'Bảo tàng', 80000, 'img7.jpg');
+const hcmTicket8 = new Ticket('Thành phố Hồ Chí Minh', 'Vé Bảo Tàng Y Học Việt Nam', 'Bảo tàng', 50000, 'img8.jpg');
+const hcmTicket9 = new Ticket('Thành phố Hồ Chí Minh', 'Vé Bảo tàng Chứng Tích Chiến Tranh', 'Bảo tàng', 50000, 'img9.jpg');
+const hcmTicket10 = new Ticket('Thành phố Hồ Chí Minh', 'Vé Thảo Cầm Viên', 'Công viên & Vườn bách thảo', 100000, 'img10.jpg');
+const hcmTicket11 = new Ticket('Thành phố Hồ Chí Minh', 'Vé Dinh Độc Lập', 'Di tích lịch sử', 30000, 'img11.jpg');
+const hcmTicket12 = new Ticket('Thành phố Hồ Chí Minh', 'Vé Địa đạo Củ Chi.', 'Di tích lịch sử', 100000, 'img12.jpg');
+
+// Tạo vé cho Hà Nội
+const hanoiTicket1 = new Ticket('Hà Nội', 'Vé Công Viên Hòa Bình', 'Công viên giải trí', 120000, 'img13.jpg');
+const hanoiTicket2 = new Ticket('Hà Nội', 'Vé Khu vui chơi giải trí Hồ Tây', 'Công viên giải trí', 150000, 'img15.jpg');
+const hanoiTicket3 = new Ticket('Hà Nội', 'Vé Công viên nước Hồ Gươm', 'Công viên nước', 120000, 'img19.jpg');
+const hanoiTicket4 = new Ticket('Hà Nội', 'Vé Bảo tàng Quốc gia Việt Nam', 'Bảo tàng', 90000, 'img21.jpg');
+const hanoiTicket5 = new Ticket('Hà Nội', 'Vé Bảo Tàng Dân Tộc Học Việt Nam', 'Bảo tàng', 80000, 'img14.jpg');
+const hanoiTicket6 = new Ticket('Hà Nội', 'Vé Công viên & Vườn Bách Thảo', 'Công viên & Vườn bách thảo', 100000, 'img20.jpg');
+const hanoiTicket7 = new Ticket('Hà Nội', 'Vé Quảng trường Ba Đình', 'Di tích lịch sử', 50000, 'img16.jpg');
+const hanoiTicket8 = new Ticket('Hà Nội', 'Vé Lăng Chủ tịch Hồ Chí Minh', 'Di tích lịch sử', 40000, 'img17.jpg');
+const hanoiTicket9 = new Ticket('Hà Nội', 'Vé Chùa Một Cột', 'Di tích lịch sử', 100.000, 'img');
+
+// Tạo vé cho Đà Nẵng
+const danangTicket1 = new Ticket('Đà Nẵng', 'Vé Công viên giải trí Asia Park', 'Công viên giải trí', 150000, 'img22.jpg');
+const danangTicket2 = new Ticket('Đà Nẵng', 'Vé Công viên nước Helio Center', 'Công viên nước', 120000, 'img24.jpg');
+const danangTicket3 = new Ticket('Đà Nẵng', 'Vé Vé Công Viên Nước Mikazuki 365 tại Đà Nẵng', 'Công viên nước', 90000, 'img28.jpg');
+const danangTicket4 = new Ticket('Đà Nẵng', 'Vé Bảo tàng Di tích Lịch sử Đà Nẵng', 'Bảo tàng', 90000, 'img28.jpg');
+const danangTicket5 = new Ticket('Đà Nẵng', 'Vé Bảo tàng Chăm', 'Bảo tàng', 70000, 'img23.jpg');
+const danangTicket6 = new Ticket('Đà Nẵng', 'Vé Tham Quan Khu Du Lịch Cổng Trời Đông Giang', 'Công viên & Vườn bách thảo', 90000, 'img28.jpg');
+const danangTicket7 = new Ticket('Đà Nẵng', 'Vé Ngũ Hành Sơn và Bảo tàng Ký ức Điêu khắc Đá Mỹ nghệ Non Nước', 'Công viên & Vườn bách thảo', 90000, 'img28.jpg');
+const danangTicket8 = new Ticket('Đà Nẵng', 'Vé Vào Cổng Di Sản Văn Hoá Thánh Địa Mỹ Sơn', 'Di tích lịch sử', 90000, 'img28.jpg');
+
+// Tạo vé cho Nha Trang
+const nhatrangTicket1 = new Ticket('Nha Trang', 'Vé Vinpearl Land', 'Công viên giải trí', 200000, 'img15.jpg');
+const nhatrangTicket2 = new Ticket('Nha Trang', 'Vé Tháp Po Nagar Cham', 'Di tích lịch sử', 50000, 'img16.jpg');
+const nhatrangTicket3 = new Ticket('Nha Trang', 'Vé Nhà thờ Núi', 'Di tích lịch sử', 70000, 'img17.jpg');
+const nhatrangTicket4 = new Ticket('Nha Trang', 'Vé Công viên nước Vinpearl Water Park', 'Công viên nước', 150000, 'img18.jpg');
+const nhatrangTicket5 = new Ticket('Nha Trang', 'Vé Tham Quan Đảo Khỉ Nha Trang', 'Công viên & Vườn bách thảo', 150000, 'img18.jpg');
+const nhatrangTicket6 = new Ticket('Nha Trang', 'Vé Vé Tham Quan Đảo Hoa Lan Tại Nha Trang', 'Công viên & Vườn bách thảo', 150000, 'img18.jpg');
+
+const vietnam = new Country('Vietnam');
+
+// Thêm vé cho Hồ Chí Minh
+vietnam.addTicket(hcmTicket1);
+vietnam.addTicket(hcmTicket2);
+vietnam.addTicket(hcmTicket3);
+vietnam.addTicket(hcmTicket4);
+vietnam.addTicket(hcmTicket5);
+vietnam.addTicket(hcmTicket6);
+vietnam.addTicket(hcmTicket7);
+vietnam.addTicket(hcmTicket8);
+vietnam.addTicket(hcmTicket9);
+vietnam.addTicket(hcmTicket10);
+vietnam.addTicket(hcmTicket11);
+vietnam.addTicket(hcmTicket12);
+
+// Thêm vé cho Hà Nội
+vietnam.addTicket(hanoiTicket1);
+vietnam.addTicket(hanoiTicket2);
+vietnam.addTicket(hanoiTicket3);
+vietnam.addTicket(hanoiTicket4);
+vietnam.addTicket(hanoiTicket5);
+vietnam.addTicket(hanoiTicket6);
+vietnam.addTicket(hanoiTicket7);
+vietnam.addTicket(hanoiTicket8);
+vietnam.addTicket(hanoiTicket9);
+
+// Thêm vé cho Đà Nẵng
+vietnam.addTicket(danangTicket1);
+vietnam.addTicket(danangTicket2);
+vietnam.addTicket(danangTicket3);
+vietnam.addTicket(danangTicket4);
+vietnam.addTicket(danangTicket5);
+vietnam.addTicket(danangTicket6);
+vietnam.addTicket(danangTicket7);
+vietnam.addTicket(danangTicket8);
+
+// Thêm vé cho Nha Trang
+vietnam.addTicket(nhatrangTicket1);
+vietnam.addTicket(nhatrangTicket2);
+vietnam.addTicket(nhatrangTicket3);
+vietnam.addTicket(nhatrangTicket4);
+vietnam.addTicket(nhatrangTicket5);
+vietnam.addTicket(nhatrangTicket6);
+
+const countryList = new CountryList();
+countryList.addCountry(vietnam);
+
+const cities =[];
+
+function pushSelectProduct() {
+    // Lấy danh sách vé từ sessionStorage hoặc ticket
+    let ticketList = JSON.parse(sessionStorage.getItem('ticket')) ?? ticket;
+
+    // Mảng mới để lưu các phần tử đã chọn từ category
+    let selectedProducts = [];
+
+    // Duyệt qua từng phần tử trong category
+    ticketList.forEach(categoryItem => {
+        // Kiểm tra xem có phần tử có tên tương ứng trong danh sách vé không
+        const matchingTicket = ticketList.find(ticket => ticket.nameOfCatalog === categoryItem);
+
+        // Nếu không tồn tại, thêm vào mảng mới
+        if (!matchingTicket) {
+            selectedProducts.push(categoryItem);
+        }
+    });
+
+    // In ra mảng mới chứa các phần tử đã chọn
+    console.log(selectedProducts);
+}
+
+
+function filterTicketsByCity(cities) {
+    // Lọc tất cả các vé có nameOfTicket là một trong các thành phố trong mảng cities
+    const cityTickets = ticketList.filter(ticket => cities.includes(ticket.nameOfTicket));
+
+    // Lọc tất cả các vé có nameOfCatalog là category1 hoặc category2
+    const filteredTickets = cityTickets.filter(ticket => ticket.nameOfCatalog === category1 || ticket.nameOfCatalog === category2);
+
+    return filteredTickets;
+}
+
+
+function filterTicketsByCategories() {
+    let filteredTickets = [];
+    let ticketList = JSON.parse(sessionStorage.getItem('ticket')) ?? ticket;
+
+    // Sử dụng biến toàn cục countryList trực tiếp
+    countryList.countries.forEach(country => {
+        ticketList.forEach(select => {
+            // Kiểm tra xem tên của vé có trùng với thành phố trong mảng cities không
+            if (!cities.includes(select.nameOfTicket)) {
+                country.tickets.forEach(ticket => {
+                    // Kiểm tra điều kiện và thêm vé vào mảng nếu thỏa mãn
+                    if (ticket.nameOfCatalog === select) {
+                        filteredTickets.push(ticket);
+                    }
+                });
+            }
+        });
+    });
+
+   console.log(filteredTickets);
+}
+
+
+function renderListProducts(countryList) {
+    const container = document.querySelector(".search-result-activity-list"); // Thay "product-container" bằng ID thích hợp trong HTML của bạn
+
+    // Kiểm tra xem container có tồn tại không
+    if (!container) {
+        console.error("Container not found!");
+        return;
+    }
+
+    // Duyệt qua các quốc gia trong danh sách
+    countryList.countries.forEach(country => {
+        // Duyệt qua các vé của mỗi quốc gia
+        country.tickets.forEach(ticket => {
+            const randomScore = (Math.random() * 0.8) + 4.2;
+            const formattedScore = randomScore.toFixed(1); // Giữ một chữ số thập phân
+            const randomReviewNumber = Math.floor(Math.random() * 500) + 1;
+            // Tạo HTML string cho mỗi sản phẩm
+            const productHTML = `
+                <div class="search-result-card rwd-activity-card desktop large-card">
+                    <div class="adaptive-card_wrap activity-card-background">
+                        <div class="adaptive-card_link" style="padding-bottom: 56.25%;">
+                            <img src="${ticket.img}" alt="" class="lazy-load-card__img">
+                        </div>
+                    </div>
+                    <div class="activity-card_content large-card_content">
+                        <div class="activity-card_content-top">
+                            <div class="activity-card_content-title-section">
+                                <div class="activity-card_content-top_title">
+                                    <h3 class="activity-card-title desktop large-card">
+                                        <a href="">${ticket.nameOfTicket}</a>
+                                    </h3>
+                                    <div
+                                    class="page-activity-recommend-info-title-review activity-card_score is-big-card">
+
+                                    <div class="page-activity-recommend-score">
+                                        <span class="page-activity-recommend-score-number">
+                                            <span class='i-icon bx bxs-star bx-flip-horizontal'></span>
+                                            <span class="score-rate">${formattedScore}</span>
+                                        </span>
+
+                                        <span class="page-activity-recommend-review-number">
+                                            <span class="review-number">${randomReviewNumber}</span>
+                                        </span>
+
+                                        <i class="sep"></i>
+                                        <span class="page-activity-recommend-booked-number">20K+ Đã được
+                                            đặt</span>
+                                    </div>
+                                    <div class="tagging-wrap activity-card_property middle-style">
+                                    <div class="tagging-box">
+                                        <div class="tagging-tag middle-style">
+                                            <div class="klk-poptip klk-poptip-dark">
+                                                <div class="klk-poptip-reference">
+                                                    <div class="tagging-tag_custom js-tag-body-node" style="color: rgb(117, 117, 117);
+                                                    border-color: rgb(245, 245, 245);
+                                                    background-color: rgb(245, 245, 245);
+                                                    border-radius: 6px;">
+                                                        <span class="tagging-tag_text">
+                                                            Xác nhận tức
+                                                            thời
+                                                            <span class="js-tag-content-node"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="tagging-tag middle-style">
+                                            <div class="klk-poptip klk-poptip-dark">
+                                                <div class="klk-poptip-reference">
+                                                    <div class="tagging-tag_custom js-tag-body-node"></div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <h4>đ ${ticket.price.toLocaleString('en-US')}</h4>
+                        </div>
+                        <div class="policy">
+                            <div>
+                                <p>Ưu đãi đặc biệt cho trẻ em</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Chèn sản phẩm vào container
+            container.innerHTML += productHTML;
+        });
+    });
+}
+
+// Sử dụng:
+renderListProducts(countryList);
+
+
