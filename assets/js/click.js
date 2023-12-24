@@ -202,7 +202,7 @@ async function getApiVietNam() {
         let response = await axios.get("https://provinces.open-api.vn/api/");
         provincesVietNam = Object.keys(response.data).map(key => response.data[key]);
         renderData(provincesVietNam, "vietnam");
-        console.log(provincesVietNam);
+       
     } catch (e) {
         console.error("Error fetching data:", e);
     }
@@ -213,6 +213,7 @@ async function getApiThaiLand() {
         let response = await axios.get("https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_province_with_amphure_tambon.json");
         provincesThaiLand = Object.keys(response.data).map(key => response.data[key]);
         renderData(provincesThaiLand, "thailand");
+        console.log(provincesThaiLand);
     } catch (e) {
         console.error("Error fetching data:", e);
     }
@@ -221,7 +222,7 @@ async function getApiThaiLand() {
 function renderData(provinces, country) {
     let treeSetItem = document.querySelector(`.klk-tree-node.main.${country}`);
     const desiredIndexesVietNam = [0, 49, 31, 36];
-    const desiredIndexesThaiLand = [2, 3, 10, 5, 6];
+    const desiredIndexesThaiLand = [0, 37, 65, 63];
     let desiredIndexes;
 
     if (country === 'vietnam') {
@@ -696,9 +697,31 @@ vietnam.addTicket(nhatrangTicket4);
 vietnam.addTicket(nhatrangTicket5);
 vietnam.addTicket(nhatrangTicket6);
 
-const thailandticket = new Ticket('Nonthaburi', 'Vé Vinpearl Land', 'Công viên giải trí', 200000, './assets/images/VietNam/img_30.jpg');
+
 const thailand = new Country('ThaiLand');
-thailand.addTicket(thailandticket);
+// Tạo vé cho BangKok
+const bangKokTicket1 = new Ticket('Bangkok', 'Vé Công Viên Dream World ở Bangkok', 'Công viên giải trí', 150000, './assets/images/ThaiLan/img_1.jpg');
+const bangKokTicket2 = new Ticket('Bangkok', 'Vé Công Viên Siam Amazing Park ở Bangkok', 'Công viên giải trí', 200000, './assets/images/ThaiLan/img_2.jpg');
+const bangKokTicket3 = new Ticket('Bangkok', 'Vé Lumphini Park', 'Công viên giải trí', 200000, './assets/images/ThaiLan/img_3.jpg');
+const bangKokTicket4 = new Ticket('Bangkok', 'Vé Công Viên Nước Pororo AquaPark ở Bangkok', 'Công viên nước', 200000, './assets/images/ThaiLan/img_4.jpg');
+const bangKokTicket5 = new Ticket('Bangkok', 'Vé Bảo Tàng Erawan và Thành Cổ Ancient City ở Bangkok', 'Bảo tàng', 80000, './assets/images/ThaiLan/img_7.jpg');
+const bangKokTicket6 = new Ticket('Bangkok', 'Vé Triển Lãm Monet & Friends Alive tại ICONSIAM', 'Bảo tàng', 50000, './assets/images/ThaiLan/img_8.jpg');
+const bangKokTicket7 = new Ticket('Bangkok', 'Vé Safari World Bangkok với Xe Đưa Đón Riêng Cao Cấp', 'Công viên & Vườn bách thảo', 100000, './assets/images/ThaiLan/img_10.png');
+const bangKokTicket8 = new Ticket('Bangkok', 'Vé Safari World Bangkok', 'Công viên & Vườn bách thảo', 100000, './assets/images/ThaiLan/img_10.png');
+const bangKokTicket9 = new Ticket('Bangkok', 'Vé Wat Arun', 'Di tích lịch sử', 150000, './assets/images/Thailand/bangkok_img_1.jpg');
+const bangKokTicket10 = new Ticket('Bangkok', 'Vé Grand Palace', 'Di tích lịch sử', 200000, './assets/images/Thailand/bangkok_img_2.jpg');
+
+thailand.addTicket(bangKokTicket1);
+thailand.addTicket(bangKokTicket2);
+thailand.addTicket(bangKokTicket3);
+thailand.addTicket(bangKokTicket4);
+thailand.addTicket(bangKokTicket5);
+thailand.addTicket(bangKokTicket6);
+thailand.addTicket(bangKokTicket7);
+thailand.addTicket(bangKokTicket8);
+thailand.addTicket(bangKokTicket9);
+thailand.addTicket(bangKokTicket10);
+
 const countryList = new CountryList();
 countryList.addCountry(vietnam);
 countryList.addCountry(thailand);
