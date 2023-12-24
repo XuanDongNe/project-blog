@@ -80,6 +80,10 @@ function clickBySub(boxSub) {
 }
 
 
+function clickBoxHandler(country) {
+  // Mở trang selectionTickets.html và truyền tham số qua query string
+  window.open(`selectionTickets.html?country=${country}`, '_blank');
+}
 
 
 

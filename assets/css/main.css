@@ -233,7 +233,7 @@ top:50%;
    align-items: center;
 }
 
-.klk-card-swiper-items-wrapper .box-item {
+.klk-card-swiper-items-wrapper  .box-item {
    display: flex;
    flex-direction: column;
    background: #fff;
@@ -241,6 +241,8 @@ top:50%;
    border-radius: 20px;
    border: 1px solid #e6e6e6;
 }
+
+
 
 .box-item.prevoious {
    height: 98%;

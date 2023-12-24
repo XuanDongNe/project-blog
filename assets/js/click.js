@@ -29,7 +29,6 @@ function render(isRemove) {
     nullChosen.style.display = 'block';
     renderSpan(categoryItem, isRemove);
 
-
 }
 
 function renderIndex() {
@@ -221,7 +220,7 @@ async function getApiThaiLand() {
 
 function renderData(provinces, country) {
     let treeSetItem = document.querySelector(`.klk-tree-node.main.${country}`);
-    const desiredIndexesVietNam = [0, 49, 31,36     ];
+    const desiredIndexesVietNam = [0, 49, 31, 36];
     const desiredIndexesThaiLand = [2, 3, 10, 5, 6];
     let desiredIndexes;
 
@@ -294,8 +293,8 @@ function isNameInTicket(name) {
     return ticket.some(item => item.name === name);
 }
 
-getApiVietNam();
-getApiThaiLand();
+// getApiVietNam();
+// getApiThaiLand();
 
 // ========================================================================= //
 //  // checbox destination and categories
@@ -697,8 +696,12 @@ vietnam.addTicket(nhatrangTicket4);
 vietnam.addTicket(nhatrangTicket5);
 vietnam.addTicket(nhatrangTicket6);
 
+const thailandticket = new Ticket('Nonthaburi', 'Vé Vinpearl Land', 'Công viên giải trí', 200000, './assets/images/VietNam/img_30.jpg');
+const thailand = new Country('ThaiLand');
+thailand.addTicket(thailandticket);
 const countryList = new CountryList();
 countryList.addCountry(vietnam);
+countryList.addCountry(thailand);
 
 const cities = [];
 
@@ -917,6 +920,20 @@ function renderProduct(container, ticket) {
 }
 
 // Sử dụng:
-renderListProducts(countryList);
+filterTicketsByCity(cities);
 
-
+// tham số truyền bên main.js
+document.addEventListener('DOMContentLoaded', async function () {
+  // Lấy tham số từ query string
+  const urlParams = new URLSearchParams(window.location.search);
+  const country = urlParams.get('country');
+  await getApiVietNam();
+  await getApiThaiLand();
+  // Kiểm tra nếu có tham số country, thực hiện checkAllOfDestination
+  if (country) {
+   
+        checkAllOfDestination(country);
+  
+    // checkAllOfDestination(country);
+  }
+});
