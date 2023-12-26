@@ -128,7 +128,7 @@ body {
     color: #eee;
 }
 #banner {
-    background: url('./assets/images/slide.webp') no-repeat;
+    background: url('/assets/images/slide.webp') no-repeat;
     background-size: cover;
     background-color: #eee;
     height: 480px;
