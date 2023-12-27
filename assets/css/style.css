@@ -128,7 +128,7 @@ body {
     color: #eee;
 }
 #banner {
-    background: url('/assets/images/slide.webp') no-repeat;
+    background: url('../images/slide.webp') no-repeat;
     background-size: cover;
     background-color: #eee;
     height: 480px;
@@ -272,7 +272,7 @@ body {
     width: 100%;
     padding: 0px 24px;
     margin: 0px;
-    background-image: url('/assets/images/hot-bg.webp');
+    background-image: url('../images/hot-bg.webp');
     align-items: center;
     display: flex;
     font-size: 18px;
@@ -356,7 +356,7 @@ body {
     height: 236px;
     overflow: hidden;
     cursor: pointer;
-    background: url('/assets/images/add1.webp');
+    background: url('../images/add1.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -375,31 +375,31 @@ body {
     margin-right: 0;
 }
 .danang {
-    background: url('/assets/images/add2.webp');
+    background: url('../images/add2.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 .hanoi {
-    background: url('/assets/images/add3.webp');
+    background: url('../images/add3.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 .bangkok {
-    background: url('/assets/images/add4.webp');
+    background: url('../images/add4.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
 }
 .singapore {
-    background: url('/assets/images/add5.webp');
+    background: url('../images/add5.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
 }
 .phuquoc {
-    background: url('/assets/images/add6.webp');
+    background: url('../images/add6.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
