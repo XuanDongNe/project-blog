@@ -271,7 +271,7 @@ font-family: Arial, Helvetica, sans-serif;
 #content .hotel-section {
     padding: 20px;
     background-color: rgb(255, 240, 229);
-    border-radius: 15px;
+    border-radius: 15px 15px 0px 0px;
 }
 
 .hotel-section .wrapper-hotel {
@@ -360,10 +360,6 @@ font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
 }
 
-#footer{
-    height: 100px;
-    background-color: #ccc;
-}
 
 .modal {
     position: fixed;
@@ -633,4 +629,35 @@ font-family: Arial, Helvetica, sans-serif;
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+#footer {
+    border-top: 1px solid #9999993d;
+    border-bottom: 1px solid #9999993d;
+}
+
+.footer-end {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 24px 0;
+    text-align: left;
+}
+.footer-end-text {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin: 0 auto;
+    width: 1160px;
+}
+.text-content {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 24px 0;
+    color: #757575;
+}
+.footer-img {
+    width: 107px;
+    height: 40px;
 }

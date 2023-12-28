@@ -809,3 +809,34 @@ a {
     border: 2px solid var(--primary-key);
     color: var(--primary-key);
 }
+
+#footer {
+    border-top: 1px solid #9999993d;
+    border-bottom: 1px solid #9999993d;
+}
+
+.footer-end {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 24px 0;
+    text-align: left;
+}
+.footer-end-text {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin: 0 auto;
+    width: 1160px;
+}
+.text-content {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 24px 0;
+    color: #757575;
+}
+.footer-img {
+    width: 107px;
+    height: 40px;
+}
