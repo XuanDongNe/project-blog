@@ -707,35 +707,35 @@ const bangKokTicket4 = new Ticket('Bangkok', 'Vé Công Viên Nước Pororo Aqu
 const bangKokTicket5 = new Ticket('Bangkok', 'Vé Bảo Tàng Erawan và Thành Cổ Ancient City ở Bangkok', 'Bảo tàng', 80000, './assets/images/ThaiLand/img_7.jpg');
 const bangKokTicket6 = new Ticket('Bangkok', 'Vé Triển Lãm Monet & Friends Alive tại ICONSIAM', 'Bảo tàng', 50000, './assets/images/ThaiLand/img_8.jpg');
 const bangKokTicket8 = new Ticket('Bangkok', 'Vé Safari World Bangkok', 'Công viên & Vườn bách thảo', 100000, './assets/images/ThaiLand/img_10.jpg');
-const bangKokTicket9 = new Ticket('Bangkok', 'Vé Wat Arun', 'Di tích lịch sử', 150000, './assets/images/Thailand/img_11.jpg');
-const bangKokTicket10 = new Ticket('Bangkok', 'Vé Grand Palace', 'Di tích lịch sử', 200000, './assets/images/Thailand/img_12.jpg');
+const bangKokTicket9 = new Ticket('Bangkok', 'Vé Wat Arun', 'Di tích lịch sử', 150000, './assets/images/ThaiLand/img_11.jpg');
+const bangKokTicket10 = new Ticket('Bangkok', 'Vé Grand Palace', 'Di tích lịch sử', 200000, './assets/images/ThaiLand/img_12.jpg');
 
-const chiangMaiTicket1 = new Ticket('Chiang Mai', 'Vé Chiang Mai Zoo', 'Công viên & Vườn bách thảo', 120000, './assets/images/Thailand/img_13.jpg');
-const chiangMaiTicket2 = new Ticket('Chiang Mai', 'Vé Công Viên Queen Sirikit', 'Công viên giải trí', 110000, './assets/images/Thailand/img_14.jpg');
-const chiangMaiTicket3 = new Ticket('Chiang Mai', 'Vé Elephant Nature Park', 'Công viên giải trí', 180000, './assets/images/Thailand/img_15.jpg');
-const chiangMaiTicket4 = new Ticket('Chiang Mai', 'Vé Đi Công Viên Nước Grand Canyon Ở Chiang Mai', 'Công viên nước', 120000, './assets/images/Thailand/img_16.jpg');
-const chiangMaiTicket5 = new Ticket('Chiang Mai', 'Vé Bảo tàng 3D Chiang Mai', 'Bảo tàng', 80000, './assets/images/Thailand/img_17.jpg');
-const chiangMaiTicket6 = new Ticket('Chiang Mai', 'Vé Bảo tàng Lịch sử Chiang Mai', 'Bảo tàng', 70000, './assets/images/Thailand/img_18.jpg');
-const chiangMaiTicket7 = new Ticket('Chiang Mai', 'Vé Công Viên Doi Inthanon', 'Công viên & Vườn bách thảo', 150000, './assets/images/Thailand/img_19.jpg');
-const chiangMaiTicket8 = new Ticket('Chiang Mai', 'Vé Vườn Tweechol Botanic Garden', 'Công viên & Vườn bách thảo', 150000, './assets/images/Thailand/img_20.jpg');
-const chiangMaiTicket9 = new Ticket('Chiang Mai', 'Vé Wat Chedi Luang', 'Di tích lịch sử', 50000, './assets/images/Thailand/img_21.jpg');
-const chiangMaiTicket10 = new Ticket('Chiang Mai', 'Vé Doi Suthep', 'Di tích lịch sử', 90000, './assets/images/Thailand/img_22.jpg');
+const chiangMaiTicket1 = new Ticket('Chiang Mai', 'Vé Chiang Mai Zoo', 'Công viên & Vườn bách thảo', 120000, './assets/images/ThaiLand/img_13.jpg');
+const chiangMaiTicket2 = new Ticket('Chiang Mai', 'Vé Công Viên Queen Sirikit', 'Công viên giải trí', 110000, './assets/images/ThaiLand/img_14.jpg');
+const chiangMaiTicket3 = new Ticket('Chiang Mai', 'Vé Elephant Nature Park', 'Công viên giải trí', 180000, './assets/images/ThaiLand/img_15.jpg');
+const chiangMaiTicket4 = new Ticket('Chiang Mai', 'Vé Đi Công Viên Nước Grand Canyon Ở Chiang Mai', 'Công viên nước', 120000, './assets/images/ThaiLand/img_16.jpg');
+const chiangMaiTicket5 = new Ticket('Chiang Mai', 'Vé Bảo tàng 3D Chiang Mai', 'Bảo tàng', 80000, './assets/images/ThaiLand/img_17.jpg');
+const chiangMaiTicket6 = new Ticket('Chiang Mai', 'Vé Bảo tàng Lịch sử Chiang Mai', 'Bảo tàng', 70000, './assets/images/ThaiLand/img_18.jpg');
+const chiangMaiTicket7 = new Ticket('Chiang Mai', 'Vé Công Viên Doi Inthanon', 'Công viên & Vườn bách thảo', 150000, './assets/images/ThaiLand/img_19.jpg');
+const chiangMaiTicket8 = new Ticket('Chiang Mai', 'Vé Vườn Tweechol Botanic Garden', 'Công viên & Vườn bách thảo', 150000, './assets/images/ThaiLand/img_20.jpg');
+const chiangMaiTicket9 = new Ticket('Chiang Mai', 'Vé Wat Chedi Luang', 'Di tích lịch sử', 50000, './assets/images/ThaiLand/img_21.jpg');
+const chiangMaiTicket10 = new Ticket('Chiang Mai', 'Vé Doi Suthep', 'Di tích lịch sử', 90000, './assets/images/ThaiLand/img_22.jpg');
 
-const phuketTicket1 = new Ticket('Phuket', 'Vé Công Viên FantaSea', 'Công viên giải trí', 180000, './assets/images/Thailand/img_23.jpg');
-const phuketTicket2 = new Ticket('Phuket', 'Vé Công Viên Flying Hanuman', 'Công viên giải trí', 160000, './assets/images/Thailand/img_24.jpg');
-const phuketTicket3 = new Ticket('Phuket', 'Vé Công Viên Tiger Kingdom', 'Công viên giải trí', 140000, './assets/images/Thailand/img_25.jpg');
-const phuketTicket4 = new Ticket('Phuket', 'Vé Công Viên Splash Jungle Water Park', 'Công viên nước', 240000, './assets/images/Thailand/img_26.jpg');
-const phuketTicket5 = new Ticket('Phuket', 'Vé Công Viên Nước Andamanda ở Phuket', 'Công viên nước', 100000, './assets/images/Thailand/img_27.jpg');
-const phuketTicket6 = new Ticket('Phuket', 'Vé Baan Teelanka (Nhà Lộn Ngược) ở Phuket', 'Bảo tàng', 20000, './assets/images/Thailand/img_29.jpg');
-const phuketTicket7 = new Ticket('Phuket', 'Vé Bảo tàng Phuket Trickeye Museum', 'Bảo tàng', 120000, './assets/images/Thailand/img_30.jpg');
-const phuketTicket8 = new Ticket('Phuket', 'Vé Xích Đu Rock Beach ở Phuket', 'Công viên & Vườn bách thảo', 500000, './assets/images/Thailand/img_31.jpg');
-const phuketTicket9 = new Ticket('Phuket', 'Vé Big Buddha', 'Di tích lịch sử', 150000, './assets/images/Thailand/img_32.jpg');
-const phuketTicket10 = new Ticket('Phuket', 'Vé Wat Chalong', 'Di tích lịch sử', 100000, './assets/images/Thailand/img_33.jpg');
+const phuketTicket1 = new Ticket('Phuket', 'Vé Công Viên FantaSea', 'Công viên giải trí', 180000, './assets/images/ThaiLand/img_23.jpg');
+const phuketTicket2 = new Ticket('Phuket', 'Vé Công Viên Flying Hanuman', 'Công viên giải trí', 160000, './assets/images/ThaiLand/img_24.jpg');
+const phuketTicket3 = new Ticket('Phuket', 'Vé Công Viên Tiger Kingdom', 'Công viên giải trí', 140000, './assets/images/ThaiLand/img_25.jpg');
+const phuketTicket4 = new Ticket('Phuket', 'Vé Công Viên Splash Jungle Water Park', 'Công viên nước', 240000, './assets/images/ThaiLand/img_26.jpg');
+const phuketTicket5 = new Ticket('Phuket', 'Vé Công Viên Nước Andamanda ở Phuket', 'Công viên nước', 100000, './assets/images/ThaiLand/img_27.jpg');
+const phuketTicket6 = new Ticket('Phuket', 'Vé Baan Teelanka (Nhà Lộn Ngược) ở Phuket', 'Bảo tàng', 20000, './assets/images/ThaiLand/img_29.jpg');
+const phuketTicket7 = new Ticket('Phuket', 'Vé Bảo tàng Phuket Trickeye Museum', 'Bảo tàng', 120000, './assets/images/ThaiLand/img_30.jpg');
+const phuketTicket8 = new Ticket('Phuket', 'Vé Xích Đu Rock Beach ở Phuket', 'Công viên & Vườn bách thảo', 500000, './assets/images/ThaiLand/img_31.jpg');
+const phuketTicket9 = new Ticket('Phuket', 'Vé Big Buddha', 'Di tích lịch sử', 150000, './assets/images/ThaiLand/img_32.jpg');
+const phuketTicket10 = new Ticket('Phuket', 'Vé Wat Chalong', 'Di tích lịch sử', 100000, './assets/images/ThaiLand/img_33.jpg');
 
-const krabiTicket1 = new Ticket('Krabi', 'Vé Công Viên Krabi Tree Top', 'Công viên giải trí', 160000, './assets/images/Thailand/img_34.jpg');
-const krabiTicket2 = new Ticket('Krabi', 'Vé Saline Hot Spring Khlong Thom', 'Công viên nước', 160000, './assets/images/Thailand/img_35.jpg');
-const krabiTicket3 = new Ticket('Krabi', 'Vé Bảo tàng Chùa Wat Khlong Thom', 'Bảo tàng', 160000, './assets/images/Thailand/img_36.jpg');
-const krabiTicket4 = new Ticket('Krabi', 'Vé Tiger Cave Temple', 'Di tích lịch sử', 120000, './assets/images/Thailand/img_37.jpg');
+const krabiTicket1 = new Ticket('Krabi', 'Vé Công Viên Krabi Tree Top', 'Công viên giải trí', 160000, './assets/images/ThaiLand/img_34.jpg');
+const krabiTicket2 = new Ticket('Krabi', 'Vé Saline Hot Spring Khlong Thom', 'Công viên nước', 160000, './assets/images/ThaiLand/img_35.jpg');
+const krabiTicket3 = new Ticket('Krabi', 'Vé Bảo tàng Chùa Wat Khlong Thom', 'Bảo tàng', 160000, './assets/images/ThaiLand/img_36.jpg');
+const krabiTicket4 = new Ticket('Krabi', 'Vé Tiger Cave Temple', 'Di tích lịch sử', 120000, './assets/images/ThaiLand/img_37.jpg');
 
 
 
