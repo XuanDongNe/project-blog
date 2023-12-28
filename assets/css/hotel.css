@@ -1,0 +1,636 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+#header {
+    height: 60px;
+}
+
+#total_header {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+}
+#header {
+    border-bottom: 1px solid #eee;
+}
+.header-content {
+    height: 60px;
+    width: 1160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+.logo-en-fill {
+    fill: #ff5b00;
+}
+.search-icon {
+    position: absolute;
+    top: 11px;
+    left: 141px;
+}
+.search-input {
+    background-color: #f5f5f5;
+    border: 1px solid #fff;
+    border-radius: 99rem;
+    caret-color: #ff5b00;
+    color: #212121;
+    font-size: 14px;
+    height: 42px;
+    overflow: hidden;
+    padding-left: 38px;
+    padding-right: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 278px;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.menu-item {
+    display: flex;
+    align-items: center;
+    color: #333333;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.menu-item:hover {
+    background: #f5f5f5;
+    align-items: center;
+    border-radius: 99rem;
+    display: flex;
+    height: 36px;
+}
+.login-btn {
+    background: #ff5b00;
+    border-radius: 120px;
+    color: #fff;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 600;
+    height: 36px;
+    line-height: 36px;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+}
+.menu-item p {
+    padding: 12px;
+    gap: 2px;
+}
+
+#slider {
+  /* background-image: url('/assets/img/place1.jpg');
+  height: 320px;
+  width: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat; */
+    position: relative;
+
+}
+
+#slider .slider-banner img {
+    height:320px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 0 0 0 0;
+    opacity: 0.7;
+    margin-top: -20px;
+}
+
+/* #slider .text-banner{
+    position: absolute;
+    top: 50px;
+    left: 20px;
+} */
+
+#slider .hotel-vertical-banner{
+    position: absolute;
+    top: 50px;
+    left: 55px;
+    padding-top: 60px;
+    line-height: 1.4;
+    font-weight: bolder;
+}
+
+#slider .content-banner {
+
+}
+
+#slider .hotel-selector {
+    background-color: #ccc;
+    height: 80px;
+    padding: 16px;
+    position: relative;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 16px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-evenly;
+    top: -46px;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.08);
+}
+
+
+.hotel-selector .place {
+    
+}
+
+.place .place-content {
+    
+}
+
+.place .place-item {
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    width: 22rem;
+    height: 54px;
+    cursor: pointer;
+    padding: 8px 16px;
+}
+
+.place .place-item:hover {
+    background-color: rgb(247, 247, 247);
+    /* opacity: 0.9; */
+}
+
+.place .place-item-name {
+    font-size: 16px;
+    /* margin-left: 2px; */
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #ccc;
+    opacity: 1;
+}
+
+.place .place-input {
+    font-size: 14px;
+}
+
+.place .text-desc{
+    border: none;
+    width: 100%;
+    outline: 0;
+    padding: 0;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #f5f5f5;
+}
+
+.place .text-desc:hover{
+    background-color: azure;
+    opacity: 1;
+}
+
+.hotel-selector .btn-search {
+    border-radius: 12px;
+    padding: 12px 24px;
+    color: #fff;
+    background-color: #ff5b00;
+    border: 1px solid #ff5b00;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+.hotel-selector .btn-search:hover {
+   opacity: 0.8;
+    
+}
+
+#content {
+
+}
+
+
+#content .hotel-ads {
+    width: 100%;
+    height: 115px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    background-color: #ecf3fc;
+    border-radius: 12px;
+    position: relative;
+}
+
+#content .hotel-ads .icon-ads {
+    width: 156px;
+    height: 110px;
+    position: absolute;
+    top: 5px;
+    left: 1300px;
+    bottom: 0;
+    box-shadow: rgba(0,0,0,.8);
+}
+
+.hotel-ads .hotel-ads-title {
+    display: flex;
+}
+
+.hotel-ads .text-ads {
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
+.hotel-ads .text-content {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-top: 10px;
+    color: #757575
+}
+
+#content .hotel-section {
+    padding: 20px;
+    background-color: rgb(255, 240, 229);
+    border-radius: 15px;
+}
+
+.hotel-section .wrapper-hotel {
+    margin-bottom: 15px;
+}
+
+.hotel-section .hotel {
+    display: flex;
+    justify-content: space-around;
+}
+
+.hotel-section .hotel-item {
+    background-color: #fff;
+    border-radius: 15px;
+    border: 1px solid #e6e6e6;
+}
+
+.hotel .hotel-item:hover {
+    scale: 1.03;
+    cursor: pointer;
+    transition: .4s;
+    box-shadow: 2px 3px 3px rgba(0,0,0,.08);
+}
+
+.hotel-item .hotel-picture {
+    display: inline-block;
+}
+
+.hotel-section .hotel-picture img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 15px 15px 0 0;
+}
+
+.hotel-item .hotel-recomment .star {
+    width: 12px;
+    height: 12px;
+}
+
+
+.hotel-item .hotel-content{
+    font-weight: 400;
+    padding: 8px;
+    
+}
+
+.hotel-item .hotel-title {
+    margin-top: 4px;
+}
+
+.hotel-item .hotel-title .header {
+    font-size: 16px;
+    padding: 12px 8px 12px;
+    font-weight: 600;
+    color: #212121;
+}
+
+
+.hotel-item .hotel-recomment{
+    margin-left: 4px;
+}
+
+.hotel-item .hotel-recomment .recomment {
+    color: #f09b0a;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.hotel-item .hotel-recomment .rating {
+    display: inline-block;
+    color: #757575;
+    font-size: 12px;
+}
+
+.hotel-item .hotel-price{
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: 600;
+    margin-left: 12px;
+}
+
+
+
+.hotel-content .hotel-title a {
+    text-decoration: none;
+}
+
+#footer{
+    height: 100px;
+    background-color: #ccc;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+    display: none;
+} 
+
+.modal.open {
+    display: flex;
+}
+
+.modal-container {
+    height: 500px;
+    width: 1000px;
+    background-color: #fff;
+    border-radius: 15px;
+    display: flex;
+    animation: modalFadeIn ease .5s;
+}
+
+
+.modal-room {
+    width:570px ;
+    height: 500px;
+    object-fit: cover;
+}
+
+.modal-room .room {
+    width: 570px;
+    height: 100%;
+    border-radius: 15px 0 0 15px;
+}
+
+.modal-content {
+    padding: 20px;
+    width: 100%;
+    position: relative;
+}
+
+.modal-content .name-room {
+    font-weight: 600;
+    line-height: 1.4;
+    color: rgb(36, 38, 44);
+    fill: rgb(36, 38, 44);
+    font-size: 34px;
+    display: inline;
+}
+
+
+.modal-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #000;
+    padding: 12px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.modal-close:hover {
+    opacity: 1;
+    background-color: #ccc;
+    color: #000;
+    border-radius: 0 15px 0 0 ;
+}
+
+.evaluate .text-evaluate{
+    font-weight: 400;
+    color: rgb(107, 115, 136);
+    fill: rgb(107, 115, 136);
+    line-height: calc(20.33px);
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.location {
+    margin-top: 5px;
+    
+}
+
+.location .adddress {
+    display: flex;
+    color: rgb(28, 100, 215);
+    fill: rgb(28, 100, 215);
+}
+
+.location i{
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.adddress .text-address {
+    font-size: 14px;
+}
+
+.location .service {
+    margin-top: 9px;
+}
+
+.location .service p {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: rgb(36, 38, 44);
+    fill: rgb(36, 38, 44);
+    margin: 7px 0;
+}
+
+.service .service-item {
+    display: inline;
+    margin: 0 7px;
+    border: 1px solid #ccc;
+}
+
+.service .service-item .service-name {
+    font-size: 16px;
+}
+
+.service .service-container {
+    display: flex;
+}
+
+.view {
+    margin-top: 10px;
+    /* background: rgb(223, 237, 255); */
+    border-radius: 2px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.view .text-view {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+}
+
+
+.view1,
+.view2 {
+    color: rgb(2, 64, 178);
+    fill: rgb(2, 64, 178);
+    display: inline-block;
+    background: rgb(223, 237, 255);
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.popular {
+    margin-top: 10px;
+    display: flex;
+    color: rgb(225, 45, 45);
+}
+
+
+.popular .text-popular{
+    margin-left: 13px;
+}
+
+.bag {
+    display: flex;
+    margin-top: 10px;
+}
+
+.bag .text-bag{
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(42, 42, 46);
+    margin-left: 10px;
+}
+
+.chat {
+    margin-top: 10px;
+    display: flex;
+}
+
+.chat .text-chat{
+    padding-left: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(42, 42, 46);
+}
+
+.parking {
+    display: flex;
+    margin-top: 10px;
+    color: #046824;
+}
+
+.parking .text-parking{
+    font-size: 14px;
+    padding-left: 12px;
+}
+
+.room-price {
+    display: flex;
+    margin-top: 15px;
+}
+
+.cost {
+    display: flex;
+    padding-left: 15px;
+}
+
+.cost .cost0{
+    font-size: 18px;
+    
+}
+
+.cost .cost1{
+    font-size: 12px;
+    padding-top: 5px;
+    text-decoration: line-through;
+    padding-left: 12px;
+}
+
+.cost .cost2{
+    font-size: 18px;
+    padding-left: 12px;
+    color: red;
+}
+
+.sale {
+    font-size: 14px;
+    padding: 0 15px;
+    background-color: red;
+    border-radius: 5px;
+    margin-left: 15px;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.put {
+    font-size: 27px;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    padding: 10px 0;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    background-color: #ff5b00;
+    cursor: pointer;
+}
+
+.put:hover {
+    opacity: 1;
+    background-color: #ccc;
+    color: #000;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-150px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
