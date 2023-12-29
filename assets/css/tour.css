@@ -1,0 +1,1504 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(255,255,255);
+}
+#total_header{
+    height: 60px;
+    width: 100%;
+    background-color: rgb(255,255,255);
+}
+#header{
+    height: 60px;
+    width: 100%;
+    background-color: rgb(255,255,255);
+}
+.logo{
+    position: absolute;
+    left: 100px;
+    top: 15px;
+}
+#Header h3{
+    position: absolute;
+    margin-top: 9px;
+    margin-left: 50px;
+    font-size: 40px;
+    color: #ff5b00;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#First_Content{
+    height: 580px;
+    width: 100%;
+}
+.img_main{
+    max-height: 500px;
+    max-width: 100%;
+    image-rendering: pixelated;
+    z-index: 1;
+    position: relative;
+    border-radius: 2px;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+h1{
+    color: white;
+    position: absolute;
+    z-index: 2;
+    top: 150px;
+    left: 10%;
+    background: transparent;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 132%;
+}
+h2{
+    color: white;
+    position: absolute;
+    z-index: 2;
+    top: 220px;
+    left: 11%;
+    background: transparent;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 132%;
+    margin-top: 8px;
+}
+.Frame_find{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+.Btn_search{
+    z-index: 2;
+    position: absolute;
+    background: #fff;
+    padding: 6px 8px 6px 20px;
+    border-radius: 9999px;
+    overflow: hidden;
+    top: 280px;
+    width: 50%;
+    left: 10%;
+    height: 9.5%;
+}
+.Btn_search .Position{
+    position: absolute;
+    width: 31px; 
+    height: 30px;
+    margin-right: 8px;
+    margin-top: 7px;
+    justify-items: left;
+}
+.Btn_search .Input_text{
+    position: absolute;
+    border: none;
+    outline: none;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 132%;
+    caret-color: #ff5b00;
+    -webkit-box-flex: 1;
+    flex: 1;
+    margin: 8px;
+    left: 9%;
+    top: 12%;
+}
+.Nav_btn_search{
+    border: none;
+    height: 30px;
+    width: 120px;
+    position: absolute;
+    left: 80%;
+    background: #ff5b00;
+    border-radius: 200px;
+    width: 120px;
+    height: 52px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-flex: 0;
+    flex: none;
+    top: 5%;
+}
+.Icon_find{
+    background-color: #ff5b00;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    border: none;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.Nav_p1{
+    position: absolute;
+    width: 158px;
+    padding: 11px;
+    height: 225px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    left: 100px;
+    top: 400px;
+    z-index: 3;
+    border: 2px solid rgb(230,230,230);
+    cursor: pointer;
+}
+.Nav_p1 img{
+    width: 100%;
+    height: auto;
+    min-height: 90px;
+    border-radius: 16px;
+    background-position: inherit;
+    background-repeat: none;
+}
+.Nav_p1 h3{
+    font-size: 18px;
+    padding-top: 8px;
+    color: black;
+}
+.Nav_p1 h4{
+    padding-top: 3px;
+    font-weight: 300;
+    color: rgb(172, 170, 168);
+}
+.Nav_p1:hover{
+    transform: scale(1.05) ;
+    border: 1px solid rgb(152, 156, 146);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.Nav_p2{
+    position: absolute;
+    width: 158px;
+    padding: 11px;
+    height: 225px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    left: 270px;
+    top: 400px;
+    z-index: 3;
+    border: 2px solid rgb(230,230,230);
+    cursor: pointer;
+}
+.Nav_p2 img{
+    width: 100%;
+    height: 131px;
+    min-height: 90px;
+    border-radius: 16px;
+    background-position: inherit;
+    background-repeat: none;
+}
+.Nav_p2 h3{
+    font-size: 18px;
+    padding-top: 8px;
+    color: black;
+}
+.Nav_p2 h4{
+    padding-top: 3px;
+    font-weight: 300;
+    color: rgb(172, 170, 168);
+}
+.Nav_p2:hover{
+    transform: scale(1.05) ;
+    border: 1px solid rgb(152, 156, 146);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.Nav_p3{
+    position: absolute;
+    width: 158px;
+    padding: 11px;
+    height: 225px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    left: 440px;
+    top: 400px;
+    z-index: 3;
+    border: 2px solid rgb(230,230,230);
+    cursor: pointer;
+}
+.Nav_p3 img{
+    width: 100%;
+    height: 131px;
+    min-height: 90px;
+    border-radius: 16px;
+    background-position: inherit;
+    background-repeat: none;
+}
+.Nav_p3 h3{
+    font-size: 18px;
+    padding-top: 8px;
+    color: black;
+}
+.Nav_p3 h4{
+    padding-top: 3px;
+    font-weight: 300;
+    color: rgb(172, 170, 168);
+}
+.Nav_p3:hover{
+    transform: scale(1.05) ;
+    border: 1px solid rgb(152, 156, 146);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.Nav_p4{
+    position: absolute;
+    width: 158px;
+    padding: 11px;
+    height: 225px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    left: 610px;
+    top: 400px;
+    z-index: 3;
+    border: 2px solid rgb(230,230,230);
+    cursor: pointer;
+}
+.Nav_p4 img{
+    width: 100%;
+    height: 131px;
+    min-height: 90px;
+    border-radius: 16px;
+    background-position: inherit;
+    background-repeat: none;
+}
+.Nav_p4 h3{
+    font-size: 18px;
+    padding-top: 8px;
+    color: black;
+}
+.Nav_p4 h4{
+    padding-top: 3px;
+    font-weight: 300;
+    color: rgb(172, 170, 168);
+}
+.Nav_p4:hover{
+    transform: scale(1.05) ;
+    border: 1px solid rgb(152, 156, 146);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.Nav_p5{
+    position: absolute;
+    width: 158px;
+    padding: 11px;
+    height: 225px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    left: 780px;
+    top: 400px;
+    z-index: 3;
+    border: 2px solid rgb(230,230,230);
+    cursor: pointer;
+}
+.Nav_p5 img{
+    width: 100%;
+    height: 131px;
+    min-height: 90px;
+    border-radius: 16px;
+    background-position: inherit;
+    background-repeat: none;
+}
+.Nav_p5 h3{
+    font-size: 18px;
+    padding-top: 8px;
+    color: black;
+}
+.Nav_p5 h4{
+    padding-top: 3px;
+    font-weight: 300;
+    color: rgb(172, 170, 168);
+}
+.Nav_p5:hover{
+    transform: scale(1.05) ;
+    border: 1px solid rgb(152, 156, 146);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.Nav_p6{
+    position: absolute;
+    width: 158px;
+    padding: 11px;
+    height: 225px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    left: 950px;
+    top: 400px;
+    z-index: 3;
+    border: 2px solid rgb(230,230,230);
+    cursor: pointer;
+}
+.Nav_p6 img{
+    width: 100%;
+    height: 131px;
+    min-height: 90px;
+    border-radius: 16px;
+    background-position: inherit;
+    background-repeat: none;
+}
+.Nav_p6 h3{
+    font-size: 18px;
+    padding-top: 8px;
+    color: black;
+}
+.Nav_p6 h4{
+    padding-top: 3px;
+    font-weight: 300;
+    color: rgb(172, 170, 168);
+}
+.Nav_p6:hover{
+    transform: scale(1.05) ;
+    border: 1px solid rgb(152, 156, 146);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.Nav_p7{
+    position: absolute;
+    width: 158px;
+    padding: 11px;
+    height: 225px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    left: 1120px;
+    top: 400px;
+    z-index: 3;
+    border: 2px solid rgb(230,230,230);
+    cursor: pointer;
+}
+.Nav_p7 img{
+    width: 100%;
+    height: 131px;
+    min-height: 90px;
+    border-radius: 16px;
+    background-position: inherit;
+    background-repeat: none;
+}
+.Nav_p7 h3{
+    font-size: 18px;
+    padding-top: 8px;
+    color: black;
+}
+.Nav_p7 h4{
+    padding-top: 3px;
+    font-weight: 300;
+    color: rgb(172, 170, 168);
+}
+.Nav_p7:hover{
+    transform: scale(1.05) ;
+    border: 1px solid rgb(152, 156, 146);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+/* -------------------------------------------------- */
+.Experience h1{
+    color: black;
+    font-size: 35px;
+    margin-top: 550px;
+    position: absolute;
+    left: 100px;
+}
+/* ------------------------------------------- */
+#Tour_Day{
+    height: 365px;
+    width: 1160px;
+    position: relative;
+    background-color: rgb(238, 218, 203);
+    border-radius: 25px;
+    margin-top: 130px;
+    margin-left: 100px;
+    z-index: 1;
+}
+#Tour_Day .Title {
+    background-color: rgb(238, 218, 203);
+    font-size: 23px;
+    margin-left: 30px;
+    border-radius: 25px;
+}
+#Tour_Day .Title h3{
+    background-color: rgb(238, 218, 203);
+    position: absolute;
+    left: 70px;
+    top: 25px;
+    font-size: 22px;
+    font-weight: 100;
+    
+}
+#Tour_Day .Title img{
+    background-color: rgb(238, 218, 203);
+    width: 35px;
+    height: 35px;
+    margin-top: 20px;
+    z-index: 3;
+}
+#Tour_Day .Title a{
+    color: black;
+    background-color: rgb(238, 218, 203);
+    z-index: 3;
+    position: absolute;
+    left: 1000px;
+    top: 25px;
+    cursor: pointer;
+}
+/* ------------------- */
+.Content{
+    z-index: 1;
+    background-color: rgb(238, 218, 203);
+    border-radius: 20px;
+}
+#Tour_Day .Content .Nav_Day1{
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    position: relative;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Tour_Day .Content .Nav_Day1 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Tour_Day .Content .Nav_Day1 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Tour_Day .Content .Nav_Day1 .star{
+    position: absolute;
+    top: 203px;
+    left: 10px;
+}
+#Tour_Day .Content .Nav_Day1 h6{
+    position: absolute;
+    top: 203px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Tour_Day .Content .Nav_Day1 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Tour_Day .Content .Nav_Day1 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Tour_Day .Content .Nav_Day1:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+ /* --------------------- */
+ #Tour_Day .Content .Nav_Day2{
+    position: absolute;
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    left: 230px;
+    top: 60px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Tour_Day .Content .Nav_Day2 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Tour_Day .Content .Nav_Day2 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Tour_Day .Content .Nav_Day2 .star{
+    position: absolute;
+    top: 203px;
+    left: 10px;
+}
+#Tour_Day .Content .Nav_Day2 h6{
+    position: absolute;
+    top: 203px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Tour_Day .Content .Nav_Day2 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Tour_Day .Content .Nav_Day2 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Tour_Day .Content .Nav_Day2:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+/* -------------------------------- */
+#Tour_Day .Content .Nav_Day3{
+    position: absolute;
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    left: 460px;
+    top: 60px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Tour_Day .Content .Nav_Day3 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Tour_Day .Content .Nav_Day3 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Tour_Day .Content .Nav_Day3 .star{
+    position: absolute;
+    top: 203px;
+    left: 10px;
+}
+#Tour_Day .Content .Nav_Day3 h6{
+    position: absolute;
+    top: 203px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Tour_Day .Content .Nav_Day3 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Tour_Day .Content .Nav_Day3 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Tour_Day .Content .Nav_Day3:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+/* ------------------------------------- */
+#Tour_Day .Content .Nav_Day4{
+    position: absolute;
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    left: 685px;
+    top: 60px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Tour_Day .Content .Nav_Day4 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Tour_Day .Content .Nav_Day4 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Tour_Day .Content .Nav_Day4 .star{
+    position: absolute;
+    top: 203px;
+    left: 10px;
+}
+#Tour_Day .Content .Nav_Day4 h6{
+    position: absolute;
+    top: 203px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Tour_Day .Content .Nav_Day4 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Tour_Day .Content .Nav_Day4 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Tour_Day .Content .Nav_Day4:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+/* ---------------------------------------- */
+#Tour_Day .Content .Nav_Day5{
+    position: absolute;
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    left: 910px;
+    top: 60px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Tour_Day .Content .Nav_Day5 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Tour_Day .Content .Nav_Day5 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Tour_Day .Content .Nav_Day5 .star{
+    position: absolute;
+    top: 203px;
+    left: 10px;
+}
+#Tour_Day .Content .Nav_Day5 h6{
+    position: absolute;
+    top: 203px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Tour_Day .Content .Nav_Day5 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Tour_Day .Content .Nav_Day5 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Tour_Day .Content .Nav_Day5:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+
+
+
+
+/* --------------------------------------------------------------
+---------------------------------------------------------------------------- */
+#Spa_Massage{
+    height: 365px;
+    width: 1160px;
+    position: relative;
+    background-color: rgb(241,238,250);
+    border-radius: 25px;
+    margin-top: 80px;
+    margin-left: 100px;
+    z-index: 1;
+}
+#Spa_Massage .Title {
+    background-color: rgb(241,238,250);
+    font-size: 23px;
+    margin-left: 30px;
+    border-radius: 25px;
+}
+#Spa_Massage .Title h3{
+    background-color: rgb(241,238,250);
+    position: absolute;
+    left: 70px;
+    top: 25px;
+    font-size: 22px;
+    font-weight: 100;
+    
+}
+#Spa_Massage .Title img{
+    background-color: rgb(241,238,250);
+    width: 35px;
+    height: 35px;
+    margin-top: 20px;
+    z-index: 3;
+}
+#Spa_Massage .Title a{
+    color: black;
+    background-color: rgb(241,238,250);
+    z-index: 3;
+    position: absolute;
+    left: 1000px;
+    top: 25px;
+    cursor: pointer;
+}
+/* ------------------- */
+#Spa_Massage .Content{
+    z-index: 1;
+    background-color: rgb(241,238,250);
+    border-radius: 20px;
+}
+#Spa_Massage .Content .Nav_Day1{
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    position: relative;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Spa_Massage .Content .Nav_Day1 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Spa_Massage .Content .Nav_Day1 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Spa_Massage .Content .Nav_Day1 .star{
+    position: absolute;
+    top: 220px;
+    left: 10px;
+}
+#Spa_Massage .Content .Nav_Day1 h6{
+    position: absolute;
+    top: 220px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Spa_Massage .Content .Nav_Day1 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Spa_Massage .Content .Nav_Day1 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Spa_Massage .Content .Nav_Day1:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+ /* --------------------- */
+ #Spa_Massage .Content .Nav_Day2{
+    position: absolute;
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    left: 230px;
+    top: 60px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Spa_Massage .Content .Nav_Day2 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Spa_Massage .Content .Nav_Day2 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Spa_Massage .Content .Nav_Day2 .star{
+    position: absolute;
+    top: 220px;
+    left: 10px;
+}
+#Spa_Massage .Content .Nav_Day2 h6{
+    position: absolute;
+    top: 220px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Spa_Massage .Content .Nav_Day2 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Spa_Massage .Content .Nav_Day2 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Spa_Massage .Content .Nav_Day2:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+/* -------------------------------- */
+#Spa_Massage .Content .Nav_Day3{
+    position: absolute;
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    left: 460px;
+    top: 60px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Spa_Massage .Content .Nav_Day3 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Spa_Massage .Content .Nav_Day3 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Spa_Massage .Content .Nav_Day3 .star{
+    position: absolute;
+    top: 220px;
+    left: 10px;
+}
+#Spa_Massage .Content .Nav_Day3 h6{
+    position: absolute;
+    top: 220px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Spa_Massage .Content .Nav_Day3 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Spa_Massage .Content .Nav_Day3 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Spa_Massage .Content .Nav_Day3:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+/* ------------------------------------- */
+#Spa_Massage .Content .Nav_Day4{
+    position: absolute;
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    left: 685px;
+    top: 60px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Spa_Massage .Content .Nav_Day4 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Spa_Massage .Content .Nav_Day4 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Spa_Massage .Content .Nav_Day4 .star{
+    position: absolute;
+    top: 203px;
+    left: 10px;
+}
+#Spa_Massage .Content .Nav_Day4 h6{
+    position: absolute;
+    top: 203px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Spa_Massage .Content .Nav_Day4 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Spa_Massage .Content .Nav_Day4 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Spa_Massage .Content .Nav_Day4:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+/* ---------------------------------------- */
+#Spa_Massage .Content .Nav_Day5{
+    position: absolute;
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    left: 910px;
+    top: 60px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Spa_Massage .Content .Nav_Day5 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Spa_Massage .Content .Nav_Day5 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Spa_Massage .Content .Nav_Day5 .star{
+    position: absolute;
+    top: 220px;
+    left: 10px;
+}
+#Spa_Massage .Content .Nav_Day5 h6{
+    position: absolute;
+    top: 220px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Spa_Massage .Content .Nav_Day5 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Spa_Massage .Content .Nav_Day5 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Spa_Massage .Content .Nav_Day5:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+
+
+
+
+/* -----------------------------------------------------------------------
+-------------------------------------------------------------------------- */
+#Yatch{
+    height: 365px;
+    width: 1160px;
+    position: relative;
+    background-color: rgb(241,238,250);
+    border-radius: 25px;
+    margin-top: 80px;
+    margin-left: 100px;
+    z-index: 1;
+}
+#Yatch .Title {
+    background-color: rgb(241,238,250);
+    font-size: 23px;
+    margin-left: 30px;
+    border-radius: 25px;
+}
+#Yatch .Title h3{
+    background-color: rgb(241,238,250);
+    position: absolute;
+    left: 70px;
+    top: 25px;
+    font-size: 22px;
+    font-weight: 100;
+    
+}
+#Yatch .Title img{
+    background-color: rgb(241,238,250);
+    width: 35px;
+    height: 35px;
+    margin-top: 20px;
+    z-index: 3;
+}
+#Yatch .Title a{
+    color: black;
+    background-color: rgb(241,238,250);
+    z-index: 3;
+    position: absolute;
+    left: 1000px;
+    top: 25px;
+    cursor: pointer;
+}
+/* ------------------- */
+#Yatch .Content{
+    z-index: 1;
+    background-color: rgb(241,238,250);
+    border-radius: 20px;
+}
+#Yatch .Content .Nav_Day1{
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    position: relative;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Yatch .Content .Nav_Day1 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Yatch .Content .Nav_Day1 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Yatch .Content .Nav_Day1 .star{
+    position: absolute;
+    top: 220px;
+    left: 10px;
+}
+#Yatch .Content .Nav_Day1 h6{
+    position: absolute;
+    top: 220px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Yatch .Content .Nav_Day1 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Yatch .Content .Nav_Day1 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Yatch .Content .Nav_Day1:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+ /* --------------------- */
+ #Yatch .Content .Nav_Day2{
+    position: absolute;
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    left: 230px;
+    top: 60px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Yatch .Content .Nav_Day2 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Yatch .Content .Nav_Day2 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Yatch .Content .Nav_Day2 .star{
+    position: absolute;
+    top: 220px;
+    left: 10px;
+}
+#Yatch .Content .Nav_Day2 h6{
+    position: absolute;
+    top: 220px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Yatch .Content .Nav_Day2 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Yatch .Content .Nav_Day2 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Yatch .Content .Nav_Day2:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+/* -------------------------------- */
+#Yatch .Content .Nav_Day3{
+    position: absolute;
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    left: 460px;
+    top: 60px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Yatch .Content .Nav_Day3 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Yatch .Content .Nav_Day3 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Yatch .Content .Nav_Day3 .star{
+    position: absolute;
+    top: 220px;
+    left: 10px;
+}
+#Yatch .Content .Nav_Day3 h6{
+    position: absolute;
+    top: 220px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Yatch .Content .Nav_Day3 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Yatch .Content .Nav_Day3 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Yatch .Content .Nav_Day3:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+/* ------------------------------------- */
+#Yatch .Content .Nav_Day4{
+    position: absolute;
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    left: 685px;
+    top: 60px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Yatch .Content .Nav_Day4 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Yatch .Content .Nav_Day4 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Yatch .Content .Nav_Day4 .star{
+    position: absolute;
+    top: 220px;
+    left: 10px;
+}
+#Yatch .Content .Nav_Day4 h6{
+    position: absolute;
+    top: 220px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Yatch .Content .Nav_Day4 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Yatch .Content .Nav_Day4 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Yatch .Content .Nav_Day4:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+/* ---------------------------------------- */
+#Yatch .Content .Nav_Day5{
+    position: absolute;
+    background-color: white;
+    height: 275px;
+    width: 210px;
+    z-index: 2;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    left: 910px;
+    top: 60px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+#Yatch .Content .Nav_Day5 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+#Yatch .Content .Nav_Day5 h4{
+    position: absolute;
+    top: 177px;
+    left: 7px;
+    font-size: 17px;
+    font-weight: 500;
+}
+#Yatch .Content .Nav_Day5 .star{
+    position: absolute;
+    top: 220px;
+    left: 10px;
+}
+#Yatch .Content .Nav_Day5 h6{
+    position: absolute;
+    top: 220px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+#Yatch .Content .Nav_Day5 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+#Yatch .Content .Nav_Day5 h5{
+    position: absolute;
+    top: 240px;
+    left: 95px;
+    color: #ff5b00;
+}
+#Yatch .Content .Nav_Day5:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+
+
+
+
+/* ----------------------------------
+------------------------------------------------------------ */
+#See_More{
+    margin-top: 50px;
+    margin-left: 40%;
+    display: flex;
+}
+#See_More button{
+    display: flex;
+    align-items: center;
+    height: 45px;
+    width: 360px;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+#See_More img{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    margin-left: 80px;
+}
+#See_More h3{
+    margin-left: 120px;
+    font-weight: 540;
+}
+
+
+
+/* ---------------------------------------------------
+----------------------------------------------------------
+ */
+#Discover .title h1{
+    position: absolute;
+    margin-top: 2030px;
+    color: black;
+    font-size: 35px;
+    left: 115px;
+}
+#Discover .title2 h4{
+    margin-top: 150px;
+    color: black;
+    font-size: 24px;
+    margin-left: 115px;
+    font-weight: 400;
+}
+#Discover .experince_VietNam{
+    display: block;
+    margin-left: 120px;
+    margin-right: 200px;
+    margin-top: 5px;
+    color: black;
+}
+#Discover .experince_VietNam a{
+    color: black;
+    font-weight: lighter;
+    opacity: 0.5;
+    line-height: 2;
+    text-decoration: none;
+}
+#Discover .title3 h4{
+    margin-top: 15px;
+    color: black;
+    font-size: 24px;
+    margin-left: 115px;
+    font-weight: 400;
+    opacity: 0.8;
+}
+#Discover .trend{
+    display: block;
+    margin-left: 120px;
+    margin-right: 200px;
+    margin-top: 5px;
+    color: black;
+}
+#Discover .trend a{
+    color: black;
+    font-weight: lighter;
+    opacity: 0.5;
+    line-height: 2;
+    text-decoration: none;
+}
+
+
+/* -----------------------------------------
+---------------------------------------------------
+ */
+#Footer{
+    position: relative;
+}
+#Footer h3{
+    position: absolute;
+    left: 40%;
+    top: 40px;
+    font-weight: 100;
+    font-size: 20px;
+}
+#Footer h4{
+    position: absolute;
+    left: 46%;
+    top: 80px;
+    font-weight: 100;
+    font-size: 15px;
+    opacity: 0.6;
+}
+#Footer h5{
+    position: absolute;
+    left: 80%;
+    top: 80px;
+    font-weight: 100;
+}

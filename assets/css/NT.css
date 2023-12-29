@@ -1,0 +1,772 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    height: 1200px;
+}
+#total_header {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    height: auto;
+}
+#header {
+    border-bottom: 1px solid #eee;
+}
+.header-content {
+    height: 60px;
+    width: 1160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+.logo-en-fill {
+    fill: #ff5b00;
+}
+.search-icon {
+    position: absolute;
+    top: 11px;
+    left: 141px;
+}
+.search-input {
+    background-color: #f5f5f5;
+    border: 1px solid #fff;
+    border-radius: 99rem;
+    caret-color: #ff5b00;
+    color: #212121;
+    font-size: 14px;
+    height: 42px;
+    overflow: hidden;
+    padding-left: 38px;
+    padding-right: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 278px;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.menu-item {
+    display: flex;
+    align-items: center;
+    color: #333333;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.menu-item:hover {
+    background: #f5f5f5;
+    align-items: center;
+    border-radius: 99rem;
+    display: flex;
+    height: 36px;
+}
+.login-btn {
+    background: #ff5b00;
+    border-radius: 120px;
+    color: #fff;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 600;
+    height: 36px;
+    line-height: 36px;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+}
+.menu-item p {
+    padding: 12px;
+    gap: 2px;
+}
+.gift-img {
+    height: 24px;
+    margin-right: 6px;
+    width: 24px;
+}
+/* ---------- First Content */
+#First_Content img{
+    height: 250px;
+    width: 1349px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+#First_Content .Title h2{
+    position: absolute;
+    top: 110px;
+    left: 100px;
+    z-index: 2;
+    color: white;
+    font-size: 35px;
+    font-weight: 500;
+}
+#First_Content .Input{
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 48px;
+    background: #fff;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,.14);
+    border-radius: 9999px;
+    padding: 6px 0;
+    box-sizing: border-box;
+    position: absolute;
+    top: 160px;
+    z-index: 2;
+    left: 100px;
+    cursor: pointer;
+}
+#First_Content .Input .Input_text{
+    position: absolute;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    line-height: 132%;
+    caret-color: #ff5b00;
+    -webkit-box-flex: 1;
+    flex: 1;
+    margin: 8px;
+    left: 60px;
+    z-index: 2;
+}
+#First_Content .Input .Icon_find{
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 30px;
+    opacity: 0.8;
+}
+/* ---------------------- Second_Content */
+#Second_Content{
+    z-index: 9999;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-btn {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+    margin-top: 60px;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 15px;
+    margin-left: 100px;
+    z-index: 9999;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 15px;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #cfa37a;
+  }
+
+  /* Hiển thị menu khi hover hoặc click vào button */
+  .dropdown:hover .dropdown-content, .dropdown-btn:focus + .dropdown-content {
+    display: block;
+  }
+
+ .down{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    margin-left: 10px;
+ }
+ /* ------------- */
+ .Nav_2 button{
+    height: 30px;
+    width: 110px;
+    border-radius: 15px;
+    border: 1px solid black;
+    background-color: rgb(216, 210, 210);
+    position: absolute;
+    top: 317px;
+    margin-left: 280px;
+ }
+ .Nav_2 button:hover{
+    background-color: #eee;
+ }
+ /* ------------- */
+ .Nav_3 button{
+    height: 30px;
+    width: 110px;
+    border-radius: 15px;
+    border: 1px solid black;
+    background-color: rgb(216, 210, 210);
+    position: absolute;
+    top: 317px;
+    margin-left: 420px;
+ }
+ .Nav_3 button:hover{
+    background-color: #eee;
+ }
+ /* ------------- */
+ .Nav_4 button{
+    height: 30px;
+    width: 110px;
+    border-radius: 15px;
+    border: 1px solid black;
+    background-color: rgb(216, 210, 210);
+    position: absolute;
+    top: 317px;
+    margin-left: 560px;
+ }
+ .Nav_4 button:hover{
+    background-color: #eee;
+ }
+  /* ------------- */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-btn1 {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    margin-left: 750px;
+    position: absolute;
+    top: 310px;
+    z-index: 1;
+  }
+
+  .dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 9999;
+    border-radius: 15px;
+    margin-left: 750px;
+  }
+
+  .dropdown-content1 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 15px;
+  }
+
+  .dropdown-content1 a:hover {
+    background-color: #cfa37a;
+  }
+
+  /* Hiển thị menu khi hover hoặc click vào button */
+  .dropdown:hover .dropdown-content1, .dropdown-btn1:focus + .dropdown-content1 {
+    display: block;
+  }
+
+ .down1{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    margin-left: 10px;
+ }
+ /* ------------- */
+ .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-btn2 {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    margin-left: 950px;
+    position: absolute;
+    top: 310px;
+  }
+
+  .dropdown-content2 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 9999;
+    border-radius: 15px;
+    margin-left: 950px;
+  }
+
+  .dropdown-content2 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 15px;
+  }
+
+  .dropdown-content2 a:hover {
+    background-color: #cfa37a;
+  }
+
+  /* Hiển thị menu khi hover hoặc click vào button */
+  .dropdown:hover .dropdown-content2, .dropdown-btn2:focus + .dropdown-content2 {
+    display: block;
+  }
+
+ .down2{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    margin-left: 10px;
+ }
+ /* ------------------- */
+ .Nav_7 button{
+    height: 50px;
+    width: 110px;
+    border-radius: 15px;
+    border: 2px solid black;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 305px;
+    margin-left: 1220px;
+    font-size: 20px;
+ }
+ .Nav_7 button:hover{
+    background-color: #eee;
+ }
+
+/* ----------------------------------------------------------------------------
+----------------------------------------
+Second2 */
+#Second2 .Title1 h5{
+    position: absolute;
+    left: 110px;
+    font-size: 20px;
+    top: 400px;
+    font-weight: 300;
+}
+#Second2 .Title2 h5{
+    position: absolute;
+    left: 1000px;
+    font-size: 20px;
+    top: 400px;
+    font-weight: 300;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-btn3 {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    margin-left: 1150px;
+    position: absolute;
+    top: 390px;
+    z-index: 9999;
+  }
+
+  .dropdown-content3 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 9999;
+    border-radius: 15px;
+    margin-left: 1142px;
+    margin-top: 80px;
+  }
+
+  .dropdown-content3 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 15px;
+  }
+
+  .dropdown-content3 a:hover {
+    background-color: #cfa37a;
+  }
+
+  /* Hiển thị menu khi hover hoặc click vào button */
+  .dropdown:hover .dropdown-content3, .dropdown-btn3:focus + .dropdown-content3 {
+    display: block;
+  }
+
+ .down3{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    margin-left: 10px;
+ }
+ /* -----------------------------------------------------------------------------
+ ----------------- 
+ Main Content */
+#Main{
+   z-index: 1;
+}
+.Nav_Day1{
+    background-color: white;
+    height: 325px;
+    width: 275px;
+    z-index: 2;
+    position: relative;
+    margin-left: 100px;
+    border-radius: 20px;
+    margin-top: 122px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    border: 1px solid rgb(209, 206, 206);
+}
+ .Nav_Day1 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+ .Nav_Day1 h4{
+    position: absolute;
+    top: 200px;
+    left: 7px;
+    font-size: 25px;
+    font-weight: 500;
+}
+.Nav_Day1 .star{
+    position: absolute;
+    top: 240px;
+    left: 10px;
+}
+.Nav_Day1 h6{
+    position: absolute;
+    top: 240px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+.Nav_Day1 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+.Nav_Day1 h5{
+    position: absolute;
+    top: 280px;
+    left: 125px;
+    color: #ff5b00;
+}
+.Nav_Day1:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+ /* --------------------- */
+ .Nav_Day2{
+    background-color: white;
+    height: 325px;
+    width: 275px;
+    z-index: 2;
+    position: absolute;
+    left: 420px;
+    border-radius: 20px;
+    top: 473px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    border: 1px solid rgb(209, 206, 206);
+}
+ .Nav_Day2 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+ .Nav_Day2 h4{
+    position: absolute;
+    top: 200px;
+    left: 7px;
+    font-size: 25px;
+    font-weight: 500;
+}
+.Nav_Day2 .star{
+    position: absolute;
+    top: 240px;
+    left: 10px;
+}
+.Nav_Day2 h6{
+    position: absolute;
+    top: 240px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+.Nav_Day2 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+.Nav_Day2 h5{
+    position: absolute;
+    top: 280px;
+    left: 125px;
+    color: #ff5b00;
+}
+.Nav_Day2:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+/* -------------------------------- */
+.Nav_Day3{
+    background-color: white;
+    height: 325px;
+    width: 275px;
+    z-index: 2;
+    position: absolute;
+    left: 740px;
+    border-radius: 20px;
+    top: 473px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    border: 1px solid rgb(209, 206, 206);
+}
+ .Nav_Day3 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+ .Nav_Day3 h4{
+    position: absolute;
+    top: 200px;
+    left: 7px;
+    font-size: 25px;
+    font-weight: 500;
+}
+.Nav_Day3 .star{
+    position: absolute;
+    top: 240px;
+    left: 10px;
+}
+.Nav_Day3 h6{
+    position: absolute;
+    top: 240px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+.Nav_Day3 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+.Nav_Day3 h5{
+    position: absolute;
+    top: 280px;
+    left: 125px;
+    color: #ff5b00;
+}
+.Nav_Day3:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+/* ------------------------------------- */
+.Nav_Day4{
+    background-color: white;
+    height: 325px;
+    width: 275px;
+    z-index: 2;
+    position: absolute;
+    left: 1060px;
+    border-radius: 20px;
+    top: 473px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    border: 1px solid rgb(209, 206, 206);
+}
+ .Nav_Day4 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+ .Nav_Day4 h4{
+    position: absolute;
+    top: 200px;
+    left: 7px;
+    font-size: 25px;
+    font-weight: 500;
+}
+.Nav_Day4 .star{
+    position: absolute;
+    top: 240px;
+    left: 10px;
+}
+.Nav_Day4 h6{
+    position: absolute;
+    top: 240px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+.Nav_Day4 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+.Nav_Day4 h5{
+    position: absolute;
+    top: 280px;
+    left: 125px;
+    color: #ff5b00;
+}
+.Nav_Day4:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+/* ---------------------------------------- */
+.Nav_Day5{
+    background-color: white;
+    height: 325px;
+    width: 275px;
+    z-index: 2;
+    position: absolute;
+    left: 100px;
+    border-radius: 20px;
+    top: 840px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    border: 1px solid rgb(209, 206, 206);
+}
+ .Nav_Day5 .pic{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 20px;
+}
+ .Nav_Day5 h4{
+    position: absolute;
+    top: 200px;
+    left: 7px;
+    font-size: 25px;
+    font-weight: 500;
+}
+.Nav_Day5 .star{
+    position: absolute;
+    top: 240px;
+    left: 10px;
+}
+.Nav_Day5 h6{
+    position: absolute;
+    top: 240px;
+    left: 31px;
+    font-size: 13px;
+    font-weight: 100;
+    color: rgb(240,155,10);
+}
+.Nav_Day5 .nav_rate{
+    color: black;
+    padding-left: 5px;
+}
+.Nav_Day5 h5{
+    position: absolute;
+    top: 280px;
+    left: 125px;
+    color: #ff5b00;
+}
+.Nav_Day5:hover{
+    transform: scale(1.005) translateY(-5px);
+}
+#Footer{
+    position: relative;
+}
+#Footer h3{
+    position: absolute;
+    left: 40%;
+    top: 450px;
+    font-weight: 100;
+    font-size: 20px;
+}
+#Footer h4{
+    position: absolute;
+    left: 46%;
+    top: 490px;
+    font-weight: 100;
+    font-size: 15px;
+    opacity: 0.6;
+}
+#Footer h5{
+    position: absolute;
+    left: 80%;
+    top: 80px;
+    font-weight: 100;
+}
